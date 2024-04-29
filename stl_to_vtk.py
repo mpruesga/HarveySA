@@ -4,7 +4,7 @@ import vtk
 import gmsh
 gmsh.initialize()
 
-stl = gmsh.merge('Brain stl/lh_simplified.stl')
+stl = gmsh.merge('assets/lh_simplified.stl')
 gmsh.model.mesh.classifySurfaces(gmsh.pi, True, True, gmsh.pi)
 gmsh.model.mesh.createGeometry()
 
@@ -21,5 +21,6 @@ gmsh.model.addPhysicalGroup(3, [1], 1)
 gmsh.model.setPhysicalName(3, 1, "The volume")
 gmsh.model.occ.synchronize()
 gmsh.model.mesh.generate(3)
-gmsh.write("Brain stl/lh_simplified.vtk")
+gmsh.write("assets/lh_simplified.vtk")
 gmsh.finalize()
+
