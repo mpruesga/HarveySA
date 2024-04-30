@@ -35,3 +35,11 @@ p.setRealTimeSimulation(1)
 while p.isConnected():
   p.stepSimulation()
   p.getCameraImage(320,200)
+  """Returns num mesh vertices and vertex positions."""
+  kwargs = {}
+  if hasattr(p, "MESH_DATA_SIMULATION_MESH"):
+    kwargs["flags"] = p.MESH_DATA_SIMULATION_MESH
+  num_verts, mesh_vert_positions = p.getMeshData(bunnyId2, **kwargs)
+  #normal_force = p.getContactPoints(bunnyId2)
+  #for i in range(len(normal_force)):
+  #  print(normal_force[i][9])
