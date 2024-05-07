@@ -4,7 +4,7 @@ import vtk
 import gmsh
 import aspose.threed as a3d
 
-filename = "rh_simplified"
+filename = "brain_simplified"
 
 gmsh.initialize()
 stl = gmsh.merge('assets/'+filename+'.stl')

@@ -12,18 +12,20 @@ p.resetSimulation(p.RESET_USE_DEFORMABLE_WORLD)
 p.resetDebugVisualizerCamera(3,-420,-30,[0.3,-0.3,0.5])
 p.setGravity(0, 0, -9.81)
 
-tex = p.loadTexture("brain_texture.jpg")
+tex = p.loadTexture("pink.png")
 planeId = p.loadURDF("plane.urdf", [0,0,-2])
 
 startOrientation = p.getQuaternionFromEuler([0,0,math.pi])
-boxId = p.loadURDF("skull.urdf", [0,0,0],globalScaling=3.5, baseOrientation=startOrientation , useMaximalCoordinates = False, useFixedBase=1)
+boxId = p.loadURDF("skull.urdf", [0,0,0],globalScaling=3.2, baseOrientation=startOrientation , useMaximalCoordinates = False, useFixedBase=1)
 
+# Base = 9.2 cm
 RobotId = p.loadURDF("GEN3-6DOF_VISION_URDF_ARM_V01.urdf",[1,0,-2], globalScaling=3.0,useFixedBase=1)
 
-bunnyId2 = p.loadSoftBody("torus/lh.obj", simFileName="lh_simplified.vtk", basePosition = [-0.5,1,-0.3], mass = 1, useNeoHookean = 1, NeoHookeanMu = 180, NeoHookeanLambda = 600, NeoHookeanDamping = 0.1, collisionMargin = 0, useSelfCollision = 1, frictionCoeff = 0.5, repulsionStiffness = 800)
-#bunnyId2 = p.loadSoftBody("torus/lh.obj", simFileName="lh_simplified.vtk", basePosition = [2,2,0], mass = 1, useNeoHookean = 1, NeoHookeanMu = 180, NeoHookeanLambda = 600, NeoHookeanDamping = 0.1, collisionMargin = 0.006, useSelfCollision = 1, frictionCoeff = 0.5, repulsionStiffness = 800)
-#bunnyId = p.loadSoftBody("lh_simplified.vtk", basePosition = [0,2,0], scale = 1, mass = 1, useNeoHookean = 1, NeoHookeanMu = 180, NeoHookeanLambda = 600, NeoHookeanDamping = 0.1, collisionMargin = 0.006, useSelfCollision = 1, frictionCoeff = 0.5, repulsionStiffness = 800)
-p.changeVisualShape(bunnyId2, -1, rgbaColor=[1,1,1,1], textureUniqueId=tex, flags=0)
+# Meshmixer: Reduce -> 90%, Reduce -> 75%
+# Meshmixer: Make solid -> solid accuracy 40 & mesh density 18, Smooth -> default
+
+brainId = p.loadSoftBody("brain.obj", simFileName="brain_simplified.vtk", basePosition = [0.2,0,0.3], mass = 1, useNeoHookean = 1, NeoHookeanMu = 800, NeoHookeanLambda = 600, NeoHookeanDamping = 0.1, collisionMargin = 0.0, useFaceContact=0, useSelfCollision = 1, frictionCoeff = 0.5, repulsionStiffness = 1)
+p.changeVisualShape(brainId, -1, rgbaColor=[0.88,0.48,0.8,1], textureUniqueId=tex, flags=0)
 
 p.setTimeStep(0.01)
 p.setPhysicsEngineParameter(sparseSdfVoxelSize=0.25)
