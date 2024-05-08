@@ -16,15 +16,15 @@ tex = p.loadTexture("pink.png")
 planeId = p.loadURDF("plane.urdf", [0,0,-2])
 
 startOrientation = p.getQuaternionFromEuler([0,0,math.pi])
-boxId = p.loadURDF("skull.urdf", [0,0,0],globalScaling=3.2, baseOrientation=startOrientation , useMaximalCoordinates = False, useFixedBase=1)
+boxId = p.loadURDF("cube.urdf", [0,0,-1.5],globalScaling=2, baseOrientation=startOrientation , useMaximalCoordinates = False, useFixedBase=1)
 
 # Base = 9.2 cm
-RobotId = p.loadURDF("GEN3-6DOF_VISION_URDF_ARM_V01.urdf",[1,0,-2], globalScaling=3.0,useFixedBase=1)
+RobotId = p.loadURDF("GEN3-6DOF_VISION_URDF_ARM_V01.urdf",[1.5,0,-2], globalScaling=5,useFixedBase=1)
 
 # Meshmixer: Reduce -> 90%, Reduce -> 75%
 # Meshmixer: Make solid -> solid accuracy 40 & mesh density 18, Smooth -> default
 
-brainId = p.loadSoftBody("brain.obj", simFileName="brain_simplified.vtk", basePosition = [0.2,0,0.3], mass = 1, useNeoHookean = 1, NeoHookeanMu = 800, NeoHookeanLambda = 600, NeoHookeanDamping = 0.1, collisionMargin = 0.0, useFaceContact=0, useSelfCollision = 1, frictionCoeff = 0.5, repulsionStiffness = 1)
+brainId = p.loadSoftBody("brain_hole_simplified.vtk", basePosition = [0.2,0,0.3],scale=2, mass = 1, useNeoHookean = 1, NeoHookeanMu = 800, NeoHookeanLambda = 600, NeoHookeanDamping = 0.1, useFaceContact=1, useSelfCollision = 0, frictionCoeff = 100)
 p.changeVisualShape(brainId, -1, rgbaColor=[0.88,0.48,0.8,1], textureUniqueId=tex, flags=0)
 
 p.setTimeStep(0.01)
