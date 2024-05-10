@@ -33,11 +33,88 @@ print(img_data.shape)
 
 
 array_data = np.zeros([240,240,155])
-array_data[100:140,100:140,75:100] = 1
+array_data[120,120,77] = 1
 array_data[150:200,100:140,50:100] = 0.5
 array_data[20:220,20:220,110:155] = 0.8
-array_data[10:130,10:230,40:55] = 0.8
+array_data[10:130,10:230,5:55] = 1
 array_data[60:80,10:230,75:100] = 0.7
+
+def bresenham3D(x1, y1, z1, x2, y2, z2):
+    ListOfPoints = []
+    ListOfPoints.append((x1, y1, z1))
+    dx = abs(x2 - x1)
+    dy = abs(y2 - y1)
+    dz = abs(z2 - z1)
+    if (x2 > x1):
+        xs = 1
+    else:
+        xs = -1
+    if (y2 > y1):
+        ys = 1
+    else:
+        ys = -1
+    if (z2 > z1):
+        zs = 1
+    else:
+        zs = -1
+
+    # Driving axis is X-axis"
+    if (dx >= dy and dx >= dz):
+        p1 = 2 * dy - dx
+        p2 = 2 * dz - dx
+        while (x1 != x2):
+            x1 += xs
+            if (p1 >= 0):
+                y1 += ys
+                p1 -= 2 * dx
+            if (p2 >= 0):
+                z1 += zs
+                p2 -= 2 * dx
+            p1 += 2 * dy
+            p2 += 2 * dz
+            ListOfPoints.append((x1, y1, z1))
+
+    # Driving axis is Y-axis"
+    elif (dy >= dx and dy >= dz):
+        p1 = 2 * dx - dy
+        p2 = 2 * dz - dy
+        while (y1 != y2):
+            y1 += ys
+            if (p1 >= 0):
+                x1 += xs
+                p1 -= 2 * dy
+            if (p2 >= 0):
+                z1 += zs
+                p2 -= 2 * dy
+            p1 += 2 * dx
+            p2 += 2 * dz
+            ListOfPoints.append((x1, y1, z1))
+
+    # Driving axis is Z-axis"
+    else:
+        p1 = 2 * dy - dz
+        p2 = 2 * dx - dz
+        while (z1 != z2):
+            z1 += zs
+            if (p1 >= 0):
+                y1 += ys
+                p1 -= 2 * dz
+            if (p2 >= 0):
+                x1 += xs
+                p2 -= 2 * dz
+            p1 += 2 * dy
+            p2 += 2 * dx
+            ListOfPoints.append((x1, y1, z1))
+    return ListOfPoints
+
+list_of_points = bresenham3D(120,120,77,1,1,1)
+print(len(list_of_points))
+
+score = 0
+for i in range(len(list_of_points)):
+    score -= array_data[list_of_points[i]]
+    array_data[list_of_points[i]] = 1
+print(score)
 
 def show_slices(slices):
     fig, axes = plt.subplots(1, len(slices))
@@ -62,5 +139,7 @@ def update(val):
 
 slidx.on_changed(update)
 
+
 plt.show()
+
 
