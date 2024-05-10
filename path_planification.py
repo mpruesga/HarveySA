@@ -107,14 +107,23 @@ def bresenham3D(x1, y1, z1, x2, y2, z2):
             ListOfPoints.append((x1, y1, z1))
     return ListOfPoints
 
-list_of_points = bresenham3D(120,120,77,1,1,1)
-print(len(list_of_points))
+total_i = img_data.shape[0]*img_data.shape[2]
+print(total_i)
 
-score = 0
-for i in range(len(list_of_points)):
-    score -= array_data[list_of_points[i]]
-    array_data[list_of_points[i]] = 1
-print(score)
+score_list = []
+for i in range(img_data.shape[0]):
+    for j in range(img_data.shape[1]):
+
+        list_of_points = bresenham3D(120,120,77,i,j,0)
+
+        score = 0
+        for k in range(len(list_of_points)):
+            score -= array_data[list_of_points[k]]
+            array_data[list_of_points[k]] = 1
+        score_list.append(score)
+
+print(len(score_list))
+print("min = "+str(min(score_list))+", max = "+str(max(score_list)))
 
 def show_slices(slices):
     fig, axes = plt.subplots(1, len(slices))
