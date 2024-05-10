@@ -2,34 +2,9 @@ from pathlib import Path
 import numpy as np
 import nibabel as nib
 from skimage import io
-
-def to_uint8(data):
-    data -= data.min()
-    print(data.max())
-    data /= data.max()
-    data *= 255
-    return data.astype(np.uint8)
-
-
-def nii_to_jpgs(input_path, output_dir, rgb=False):
-    output_dir = Path(output_dir)
-    data = nib.load(input_path).get_fdata()
-    *_, num_slices, num_channels = data.shape
-    for channel in range(num_channels):
-        volume = data[..., channel]
-        volume = to_uint8(volume)
-        channel_dir = output_dir / f'channel_{channel}'
-        channel_dir.mkdir(exist_ok=True, parents=True)
-        for slice in range(num_slices):
-            slice_data = volume[..., slice]
-            if rgb:
-                slice_data = np.stack(3 * [slice_data], axis=2)
-            output_path = channel_dir / f'channel_{channel}_slice_{slice}.jpg'
-            io.imsave(output_path, slice_data)
-
-
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 import matplotlib.pyplot as plt
+from matplotlib.widgets import Slider
 from skimage import measure
 
 
@@ -55,8 +30,14 @@ img_data = img.get_fdata()
 img_data = img_data[:,:,:,2]
 print(img.header.get_data_dtype())
 print(img_data.shape)
-#img_data[100:140,100:140,77] = 200
 
+
+array_data = np.zeros([240,240,155])
+array_data[100:140,100:140,75:100] = 1
+array_data[150:200,100:140,50:100] = 0.5
+array_data[20:220,20:220,110:155] = 0.8
+array_data[10:130,10:230,40:55] = 0.8
+array_data[60:80,10:230,75:100] = 0.7
 
 def show_slices(slices):
     fig, axes = plt.subplots(1, len(slices))
@@ -64,9 +45,22 @@ def show_slices(slices):
         axes[i].imshow(slice.T, cmap="gray", origin="lower")
 
 
-slice_0 = img_data[120, :, :]
-slice_1 = img_data[:, 120, :]
-slice_2 = img_data[:, :, 77]
-show_slices([slice_0, slice_1, slice_2])
-plt.suptitle("Slices")
+slice_0 = array_data[1, :, :]
+slice_1 = array_data[:, 2, :]
+slice_2 = array_data[:, :, 80]
+
+slice = plt.imshow(slice_2, cmap="gray", origin="lower")
+
+axidx = plt.axes([0.25, 0.15, 0.65, 0.03])
+slidx = Slider(axidx, 'index', 0, 154, valinit=0, valfmt='%d')
+
+def update(val):
+    idx = slidx.val
+    slice_2 = array_data[:,:,int(idx)]
+    slice.set_data(slice_2)
+
+
+slidx.on_changed(update)
+
 plt.show()
+
