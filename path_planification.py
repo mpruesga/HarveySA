@@ -116,7 +116,7 @@ def sphere3D(center,d):
         for y in range(d):
             for x in range(d):
                 if ((start[0]+x < 240) & (start[1]+y < 240) & (start[2]+z < 155)) & ((start[0]+x >= 0) & (start[1]+y >= 0) & (start[2]+z >= 0)):
-                    list_of_points_sphere.append([start[0]+x, start[1]+y, start[2]+z])
+                    list_of_points_sphere.append((start[0]+x, start[1]+y, start[2]+z))
     return list_of_points_sphere
 
 
@@ -125,22 +125,22 @@ print(total_i)
 
 score_list = []
 cont = 0
-for i in range(img_data.shape[0]):
-    for j in range(img_data.shape[1]):
+for i in range(1):
+    for j in range(1):
 
         list_of_points = bresenham3D(120,120,77,i,j,0)
 
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k],3)
+            list_of_sphere = sphere3D(list_of_points[k],2)
             for l in range(len(list_of_sphere)):
                 score -= array_data[list_of_sphere[l]]
-                array_data[list_of_points[k]] = 1
+                array_data[list_of_sphere[l]] = 1
         score_list.append(score)
         cont += 1
         print(cont)
 
-print(len(score_list))
+print((score_list))
 print("min = "+str(min(score_list))+", max = "+str(max(score_list)))
 
 def show_slices(slices):
