@@ -33,7 +33,7 @@ print(img_data.shape)
 
 
 array_data = np.zeros([240,240,155])
-array_data[120,120,77] = 1
+array_data[120,120,77] = -1
 array_data[150:200,100:140,50:100] = 0.5
 array_data[20:220,20:220,110:155] = 0.8
 array_data[10:130,10:230,5:55] = 1
@@ -107,10 +107,24 @@ def bresenham3D(x1, y1, z1, x2, y2, z2):
             ListOfPoints.append((x1, y1, z1))
     return ListOfPoints
 
+def sphere3D(center,d):
+    list_of_points_sphere = []
+    start = []
+    for i in range(len(center)):
+        start.append(center[i] - d//2)
+    for z in range(d):
+        for y in range(d):
+            for x in range(d):
+                if ((start[0]+x < 240) & (start[1]+y < 240) & (start[2]+z < 155)) & ((start[0]+x >= 0) & (start[1]+y >= 0) & (start[2]+z >= 0)):
+                    list_of_points_sphere.append([start[0]+x, start[1]+y, start[2]+z])
+    return list_of_points_sphere
+
+
 total_i = img_data.shape[0]*img_data.shape[2]
 print(total_i)
 
 score_list = []
+cont = 0
 for i in range(img_data.shape[0]):
     for j in range(img_data.shape[1]):
 
@@ -118,9 +132,13 @@ for i in range(img_data.shape[0]):
 
         score = 0
         for k in range(len(list_of_points)):
-            score -= array_data[list_of_points[k]]
-            array_data[list_of_points[k]] = 1
+            list_of_sphere = sphere3D(list_of_points[k],3)
+            for l in range(len(list_of_sphere)):
+                score -= array_data[list_of_sphere[l]]
+                array_data[list_of_points[k]] = 1
         score_list.append(score)
+        cont += 1
+        print(cont)
 
 print(len(score_list))
 print("min = "+str(min(score_list))+", max = "+str(max(score_list)))
