@@ -33,13 +33,14 @@ img_data = img_data[:,:,:,2]
 print(img.header.get_data_dtype())
 print(img_data.shape)
 
-
-array_data = np.zeros([240,240,155])
-array_data[120,120,77] = -1
-array_data[150:200,100:140,50:100] = 0.5
-array_data[20:220,20:220,110:155] = 0.8
-array_data[10:130,10:230,5:55] = 1
-array_data[60:80,10:230,75:100] = 0.7
+def label_map():
+    array_data = np.zeros([240,240,155])
+    array_data[120,120,77] = -1
+    array_data[150:200,100:140,50:100] = 0.5
+    array_data[20:220,20:220,110:155] = 0.8
+    array_data[10:130,10:230,5:55] = 1
+    array_data[60:80,10:230,75:100] = 0.7
+    return array_data
 
 def bresenham3D(x1, y1, z1, x2, y2, z2):
     ListOfPoints = []
@@ -141,8 +142,6 @@ def get_best_paths_s1():
     best_10 = []
     for i in range(10):
         best_10.append(sort_index[i])
-    index_1 = 0
-    index_2 = 0
     indexes = []
     for index in range(len(best_10)):
         index_1 = best_10[index] // 240
@@ -152,10 +151,26 @@ def get_best_paths_s1():
 
     return indexes
 
+def get_scores_tr(indexes):
+    new_array = label_map()
+    score_list = []
+    for i in range(len(indexes)):
+        idx = indexes[i]
+        list_of_points = bresenham3D(120, 120, 77, idx[1], idx[0], 0)
+        score = 0
+        for k in range(len(list_of_points)):
+            list_of_sphere = sphere3D(list_of_points[k], 10)
+            for l in range(len(list_of_sphere)):
+                score -= array_data[list_of_sphere[l]]
+                array_data[list_of_sphere[l]] = 1
+        score_list.append(score)
+    return score_list
 
-a = get_best_paths_s1()
 
-
+array_data = label_map()
+indexes = get_best_paths_s1()
+scores = get_scores_tr(indexes)
+print(scores)
 
 def show_slices(slices):
     fig, axes = plt.subplots(1, len(slices))
