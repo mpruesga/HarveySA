@@ -1,4 +1,6 @@
 from pathlib import Path
+
+import numpy
 import numpy as np
 import nibabel as nib
 from skimage import io
@@ -122,27 +124,38 @@ def sphere3D(center,d):
     return list_of_points_sphere
 
 
-total_i = img_data.shape[0]*img_data.shape[2]
-print(total_i)
+def get_best_paths_s1():
+    score_list = []
+    for i in range(img_data.shape[0]):
+        for j in range(img_data.shape[1]):
 
-score_list = []
-cont = 0
-for i in range(1):
-    for j in range(1):
+            list_of_points = bresenham3D(120,120,77,j,i,0)
 
-        list_of_points = bresenham3D(120,120,77,i,j,0)
+            score = 0
+            for k in range(len(list_of_points)):
+                score -= array_data[list_of_points[k]]
+                #array_data[list_of_points[k]] = 0
+            score_list.append(score)
 
-        score = 0
-        for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k],10)
-            for l in range(len(list_of_sphere)):
-                score -= array_data[list_of_sphere[l]]
-                array_data[list_of_sphere[l]] = 0
-        score_list.append(score)
-        cont += 1
-        print(cont)
+    sort_index = numpy.argsort(np.abs(score_list))
+    best_10 = []
+    for i in range(10):
+        best_10.append(sort_index[i])
+    index_1 = 0
+    index_2 = 0
+    indexes = []
+    for index in range(len(best_10)):
+        index_1 = best_10[index] // 240
+        a = index_1 * 240
+        index_2 = best_10[index] - a
+        indexes.append((index_1,index_2))
 
-print("min = "+str(min(score_list))+", max = "+str(max(score_list)))
+    return indexes
+
+
+a = get_best_paths_s1()
+
+
 
 def show_slices(slices):
     fig, axes = plt.subplots(1, len(slices))
