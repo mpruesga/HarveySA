@@ -1,35 +1,14 @@
-from pathlib import Path
-
 import numpy
 import numpy as np
 import nibabel as nib
-from skimage import io
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
-from skimage import measure
-
-
-def plot_3d(image, threshold=-300):
-    p = image.transpose(2,1,0)
-    verts, faces, normals, values = measure.marching_cubes_lewiner(p, threshold)
-    fig = plt.figure(figsize=(10, 10))
-    ax = fig.add_subplot(111, projection='3d')
-    mesh = Poly3DCollection(verts[faces], alpha=0.1)
-    face_color = [0.5, 0.5, 1]
-    mesh.set_facecolor(face_color)
-    ax.add_collection3d(mesh)
-    ax.set_xlim(0, p.shape[0])
-    ax.set_ylim(0, p.shape[1])
-    ax.set_zlim(0, p.shape[2])
-
-    plt.show()
 
 
 path = "MR images/BRATS_486.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
-img_data = img_data[:,:,:,2]
+img_data = img_data[:,:,:,1]
 print(img.header.get_data_dtype())
 print(img_data.shape)
 
@@ -140,7 +119,7 @@ def get_best_paths_s1():
 
     sort_index = numpy.argsort(np.abs(score_list))
     best_10 = []
-    for i in range(10):
+    for i in range(30):
         best_10.append(sort_index[i])
     indexes = []
     for index in range(len(best_10)):
@@ -151,8 +130,8 @@ def get_best_paths_s1():
 
     return indexes
 
+
 def get_scores_tr(indexes):
-    new_array = label_map()
     score_list = []
     for i in range(len(indexes)):
         idx = indexes[i]
@@ -172,11 +151,6 @@ indexes = get_best_paths_s1()
 scores = get_scores_tr(indexes)
 print(scores)
 
-def show_slices(slices):
-    fig, axes = plt.subplots(1, len(slices))
-    for i, slice in enumerate(slices):
-        axes[i].imshow(slice.T, cmap="gray", origin="lower")
-
 
 slice_0 = array_data[80, :, :]
 slice_1 = array_data[:, 80, :]
@@ -188,7 +162,7 @@ slice1 = axes[1].imshow(slice_1, cmap="gray", origin="lower")
 slice2 = axes[2].imshow(slice_2, cmap="gray", origin="lower")
 
 axidx = plt.axes([0.25, 0.15, 0.65, 0.03])
-slidx = Slider(axidx, 'index', 0, 154, valinit=0, valfmt='%d')
+slidx = Slider(axidx, 'index', 0, 239, valinit=0, valfmt='%d')
 
 def update(val):
     idx = slidx.val
@@ -198,8 +172,9 @@ def update(val):
     slice_1 = array_data[:, int(idx), :]
     slice1.set_data(slice_1)
 
-    slice_2 = array_data[:,:,int(idx)]
-    slice2.set_data(slice_2)
+    if idx < 155:
+        slice_2 = array_data[:,:,int(idx)]
+        slice2.set_data(slice_2)
 
 
 slidx.on_changed(update)
