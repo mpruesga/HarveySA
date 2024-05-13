@@ -116,7 +116,9 @@ def sphere3D(center,d):
         for y in range(d):
             for x in range(d):
                 if ((start[0]+x < 240) & (start[1]+y < 240) & (start[2]+z < 155)) & ((start[0]+x >= 0) & (start[1]+y >= 0) & (start[2]+z >= 0)):
-                    list_of_points_sphere.append((start[0]+x, start[1]+y, start[2]+z))
+                    dist_to_center = np.sqrt((center[0]-(start[0]+x))**2+(center[1]-(start[1]+y))**2+(center[2]-(start[2]+z))**2)
+                    if dist_to_center <= d/2:
+                        list_of_points_sphere.append((start[0]+x, start[1]+y, start[2]+z))
     return list_of_points_sphere
 
 
@@ -132,15 +134,14 @@ for i in range(1):
 
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k],2)
+            list_of_sphere = sphere3D(list_of_points[k],10)
             for l in range(len(list_of_sphere)):
                 score -= array_data[list_of_sphere[l]]
-                array_data[list_of_sphere[l]] = 1
+                array_data[list_of_sphere[l]] = 0
         score_list.append(score)
         cont += 1
         print(cont)
 
-print((score_list))
 print("min = "+str(min(score_list))+", max = "+str(max(score_list)))
 
 def show_slices(slices):
@@ -149,19 +150,28 @@ def show_slices(slices):
         axes[i].imshow(slice.T, cmap="gray", origin="lower")
 
 
-slice_0 = array_data[1, :, :]
-slice_1 = array_data[:, 2, :]
+slice_0 = array_data[80, :, :]
+slice_1 = array_data[:, 80, :]
 slice_2 = array_data[:, :, 80]
 
-slice = plt.imshow(slice_2, cmap="gray", origin="lower")
+fig, axes = plt.subplots(1,3)
+slice0 = axes[0].imshow(slice_0, cmap="gray", origin="lower")
+slice1 = axes[1].imshow(slice_1, cmap="gray", origin="lower")
+slice2 = axes[2].imshow(slice_2, cmap="gray", origin="lower")
 
 axidx = plt.axes([0.25, 0.15, 0.65, 0.03])
 slidx = Slider(axidx, 'index', 0, 154, valinit=0, valfmt='%d')
 
 def update(val):
     idx = slidx.val
+    slice_0 = array_data[int(idx), :, :]
+    slice0.set_data(slice_0)
+
+    slice_1 = array_data[:, int(idx), :]
+    slice1.set_data(slice_1)
+
     slice_2 = array_data[:,:,int(idx)]
-    slice.set_data(slice_2)
+    slice2.set_data(slice_2)
 
 
 slidx.on_changed(update)
