@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="90a60944-2fd5-454b-b949-37dca2f277e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_102.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_103.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_104.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_105.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_107.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_115.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_119.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_120.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_124.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_134.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_141.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_154.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_33.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_35.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_41.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_51.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_68.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_72.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_73.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_75.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_79.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_81.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_83.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_86.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_88.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_90.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_91.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_94.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_96.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_97.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_98.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_0/channel_0_slice_99.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_102.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_103.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_104.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_105.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_107.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_115.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_119.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_120.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_124.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_134.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_141.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_154.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_33.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_35.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_41.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_51.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_68.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_72.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_73.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_75.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_79.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_81.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_83.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_86.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_88.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_90.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_91.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_94.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_96.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_97.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_98.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_1/channel_1_slice_99.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_102.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_103.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_104.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_105.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_107.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_115.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_119.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_120.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_124.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_134.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_141.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_154.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_33.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_35.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_41.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_51.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_68.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_72.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_73.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_75.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_79.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_81.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_83.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_86.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_88.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_90.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_91.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_94.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_96.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_97.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_98.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_2/channel_2_slice_99.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_102.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_103.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_104.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_105.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_107.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_115.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_119.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_120.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_124.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_134.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_141.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_154.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_33.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_35.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_41.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_51.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_68.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_72.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_73.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_75.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_79.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_81.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_83.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_86.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_88.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_90.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_91.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_94.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_96.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_97.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_98.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/channel_3/channel_3_slice_99.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mri_segmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/mri_segmentation.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2fa9gWojosTK7di7wpGyxhFuSgu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/miang/Downloads/Simulation_Pybullet-master/Simulation_Pybullet-master&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Galen" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90a60944-2fd5-454b-b949-37dca2f277e6" name="Changes" comment="" />
+      <created>1714028433051</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714028433051</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
