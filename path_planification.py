@@ -164,18 +164,18 @@ def sphere3D(center,d):
     return list_of_points_sphere
 
 
-def get_best_paths_s1(data, tumor_c):
+def get_best_paths_s1(data, tumor_c, init_voxels):
     score_list = []
-    for i in range(img_data.shape[0]):
-        for j in range(img_data.shape[1]):
 
-            list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2],j,i,0)
+    for i in range(len(init_voxels)):
+        voxel = init_voxels[i]
+        list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2],voxel[0],voxel[1],voxel[2])
 
-            score = 0
-            for k in range(len(list_of_points)):
-                score -= data[list_of_points[k]]
-                #array_data[list_of_points[k]] = 0
-            score_list.append(score)
+        score = 0
+        for k in range(len(list_of_points)):
+            score -= data[list_of_points[k]]
+            #array_data[list_of_points[k]] = 0
+        score_list.append(score)
 
     sort_index = numpy.argsort(np.abs(score_list))
     best_10 = []
@@ -183,10 +183,12 @@ def get_best_paths_s1(data, tumor_c):
         best_10.append(sort_index[i])
     indexes = []
     for index in range(len(best_10)):
-        index_1 = best_10[index] // 240
+        voxel = init_voxels[best_10[index]]
+        indexes.append(voxel)
+        """index_1 = best_10[index] // 240
         a = index_1 * 240
         index_2 = best_10[index] - a
-        indexes.append((index_1,index_2))
+        indexes.append((index_1,index_2))"""
 
     return indexes
 
@@ -235,9 +237,6 @@ def show_slices(data):
     plt.show()
 
 
-show_slices(img_data)
-
-
 def sobel_filter(image):
     sobel_h = ndimage.sobel(image, 0, mode='constant', cval=0.1)  # horizontal gradient
     sobel_v = ndimage.sobel(image, 1, mode='constant', cval=0.1)  # vertical gradient
@@ -279,6 +278,8 @@ def get_brain_surface(mask):
 
 brain_surface, surface_index = get_brain_surface(tumor_binary)
 
-indexes = get_best_paths_s1(img_data, tumor_center)
+indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
+print(indexes)
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
+show_slices(img_data)
