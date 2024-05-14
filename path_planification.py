@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
 
-path = "MR images/Labels/BRATS_003.nii.gz"
+path = "MR images/Labels/FullSegmentation_001_Test.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
 #img_data = img_data[:,:,:,2]
@@ -14,13 +14,16 @@ print(img_data.shape)
 
 
 def tumor_preprocessing(image):
-    for z in range(image.shape[2]):
-        for y in range(image.shape[1]):
-            for x in range(image.shape[0]):
-                if image[x][y][z] > 1:
-                    image[x][y][z] = 1
+    processed = np.zeros([240,240,155])
+    for z in range(processed.shape[2]):
+        for y in range(processed.shape[1]):
+            for x in range(processed.shape[0]):
+                if image[x][y][z] == 600:
+                    processed[x][y][z] = 1
                 else:
-                    image[x][y][z] = 0
+                    processed[x][y][z] = 0
+    return processed
+
 
 def get_tumor_dimensions(image):
     x_slices = []
@@ -60,9 +63,9 @@ def get_tumor_dimensions(image):
     return tumor_dims, tumor_center
 
 
-tumor_preprocessing(img_data)
-tumor, tumor_center = get_tumor_dimensions(img_data)
-print(tumor)
+tumor_binary = tumor_preprocessing(img_data)
+tumor, tumor_center = get_tumor_dimensions(tumor_binary)
+
 print(tumor_center)
 
 def label_map():
@@ -159,12 +162,12 @@ def sphere3D(center,d):
     return list_of_points_sphere
 
 
-def get_best_paths_s1(data):
+def get_best_paths_s1(data,tumor_c):
     score_list = []
     for i in range(img_data.shape[0]):
         for j in range(img_data.shape[1]):
 
-            list_of_points = bresenham3D(120,120,77,j,i,0)
+            list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2],j,i,0)
 
             score = 0
             for k in range(len(list_of_points)):
@@ -186,30 +189,30 @@ def get_best_paths_s1(data):
     return indexes
 
 
-def get_scores_tr(indexes,data):
+def get_scores_tr(indexes,data,tumor_c):
     score_list = []
     for i in range(len(indexes)):
         idx = indexes[i]
-        list_of_points = bresenham3D(120, 120, 77, idx[1], idx[0], 0)
+        list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[1], idx[0], 0)
         score = 0
         for k in range(len(list_of_points)):
             list_of_sphere = sphere3D(list_of_points[k], 10)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                data[list_of_sphere[l]] = 1
+                data[list_of_sphere[l]] = 2048
         score_list.append(score)
     return score_list
 
 
-"""array_data = label_map()
-indexes = get_best_paths_s1(array_data)
-scores = get_scores_tr(indexes,array_data)
-print(scores)"""
+#array_data = label_map()
+indexes = get_best_paths_s1(img_data, tumor_center)
+scores = get_scores_tr(indexes, img_data, tumor_center)
+print(scores)
 
 
 def show_slices(data):
-    slice_0 = data[130, :, :]
-    slice_1 = data[:, 80, :]
+    slice_0 = data[100, :, :]
+    slice_1 = data[:, 100, :]
     slice_2 = data[:, :, 80]
 
     fig, axes = plt.subplots(1,3)
