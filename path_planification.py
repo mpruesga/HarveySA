@@ -5,12 +5,65 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
 
-path = "MR images/BRATS_486.nii.gz"
+path = "MR images/Labels/BRATS_003.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
-img_data = img_data[:,:,:,1]
+#img_data = img_data[:,:,:,2]
 print(img.header.get_data_dtype())
 print(img_data.shape)
+
+
+def tumor_preprocessing(image):
+    for z in range(image.shape[2]):
+        for y in range(image.shape[1]):
+            for x in range(image.shape[0]):
+                if image[x][y][z] > 1:
+                    image[x][y][z] = 1
+                else:
+                    image[x][y][z] = 0
+
+def get_tumor_dimensions(image):
+    x_slices = []
+    for i in range(240):
+        if np.sum(image[i,:,:]) > 0:
+            x_slices.append(i)
+    y_slices = []
+    for j in range(240):
+        if np.sum(image[:, j, :]) > 0:
+            y_slices.append(j)
+    z_slices = []
+    for k in range(155):
+        if np.sum(image[:,:,k]) > 0:
+            z_slices.append(k)
+
+    tumor_dims = (max(x_slices)-min(x_slices),max(y_slices)-min(y_slices),max(z_slices)-min(z_slices))
+
+    if len(x_slices) % 2 != 0:  # Check if the length is odd
+        middle_index = len(x_slices) // 2
+    else:
+        middle_index = len(x_slices) // 2 - 1
+    x_center = x_slices[middle_index]
+
+    if len(y_slices) % 2 != 0:  # Check if the length is odd
+        middle_index = len(y_slices) // 2
+    else:
+        middle_index = len(y_slices) // 2 - 1
+    y_center = y_slices[middle_index]
+
+    if len(z_slices) % 2 != 0:  # Check if the length is odd
+        middle_index = len(z_slices) // 2
+    else:
+        middle_index = len(z_slices) // 2 - 1
+    z_center = z_slices[middle_index]
+
+    tumor_center = (x_center,y_center,z_center)
+    return tumor_dims, tumor_center
+
+
+tumor_preprocessing(img_data)
+tumor, tumor_center = get_tumor_dimensions(img_data)
+print(tumor)
+print(tumor_center)
 
 def label_map():
     array_data = np.zeros([240,240,155])
@@ -20,6 +73,7 @@ def label_map():
     array_data[10:130,10:230,5:55] = 1
     array_data[60:80,10:230,75:100] = 0.7
     return array_data
+
 
 def bresenham3D(x1, y1, z1, x2, y2, z2):
     ListOfPoints = []
@@ -89,6 +143,7 @@ def bresenham3D(x1, y1, z1, x2, y2, z2):
             ListOfPoints.append((x1, y1, z1))
     return ListOfPoints
 
+
 def sphere3D(center,d):
     list_of_points_sphere = []
     start = []
@@ -104,7 +159,7 @@ def sphere3D(center,d):
     return list_of_points_sphere
 
 
-def get_best_paths_s1():
+def get_best_paths_s1(data):
     score_list = []
     for i in range(img_data.shape[0]):
         for j in range(img_data.shape[1]):
@@ -113,7 +168,7 @@ def get_best_paths_s1():
 
             score = 0
             for k in range(len(list_of_points)):
-                score -= array_data[list_of_points[k]]
+                score -= data[list_of_points[k]]
                 #array_data[list_of_points[k]] = 0
             score_list.append(score)
 
@@ -131,7 +186,7 @@ def get_best_paths_s1():
     return indexes
 
 
-def get_scores_tr(indexes):
+def get_scores_tr(indexes,data):
     score_list = []
     for i in range(len(indexes)):
         idx = indexes[i]
@@ -140,46 +195,45 @@ def get_scores_tr(indexes):
         for k in range(len(list_of_points)):
             list_of_sphere = sphere3D(list_of_points[k], 10)
             for l in range(len(list_of_sphere)):
-                score -= array_data[list_of_sphere[l]]
-                array_data[list_of_sphere[l]] = 1
+                score -= data[list_of_sphere[l]]
+                data[list_of_sphere[l]] = 1
         score_list.append(score)
     return score_list
 
 
-array_data = label_map()
-indexes = get_best_paths_s1()
-scores = get_scores_tr(indexes)
-print(scores)
+"""array_data = label_map()
+indexes = get_best_paths_s1(array_data)
+scores = get_scores_tr(indexes,array_data)
+print(scores)"""
 
 
-slice_0 = array_data[80, :, :]
-slice_1 = array_data[:, 80, :]
-slice_2 = array_data[:, :, 80]
+def show_slices(data):
+    slice_0 = data[130, :, :]
+    slice_1 = data[:, 80, :]
+    slice_2 = data[:, :, 80]
 
-fig, axes = plt.subplots(1,3)
-slice0 = axes[0].imshow(slice_0, cmap="gray", origin="lower")
-slice1 = axes[1].imshow(slice_1, cmap="gray", origin="lower")
-slice2 = axes[2].imshow(slice_2, cmap="gray", origin="lower")
+    fig, axes = plt.subplots(1,3)
+    slice0 = axes[0].imshow(slice_0, cmap="gray", origin="lower")
+    slice1 = axes[1].imshow(slice_1, cmap="gray", origin="lower")
+    slice2 = axes[2].imshow(slice_2, cmap="gray", origin="lower")
 
-axidx = plt.axes([0.25, 0.15, 0.65, 0.03])
-slidx = Slider(axidx, 'index', 0, 239, valinit=0, valfmt='%d')
+    axidx = plt.axes([0.25, 0.15, 0.65, 0.03])
+    slidx = Slider(axidx, 'index', 0, 239, valinit=0, valfmt='%d')
 
-def update(val):
-    idx = slidx.val
-    slice_0 = array_data[int(idx), :, :]
-    slice0.set_data(slice_0)
+    def update(val):
+        idx = slidx.val
+        slice_0 = data[int(idx), :, :]
+        slice0.set_data(slice_0)
 
-    slice_1 = array_data[:, int(idx), :]
-    slice1.set_data(slice_1)
+        slice_1 = data[:, int(idx), :]
+        slice1.set_data(slice_1)
 
-    if idx < 155:
-        slice_2 = array_data[:,:,int(idx)]
-        slice2.set_data(slice_2)
+        if idx < 155:
+            slice_2 = data[:,:,int(idx)]
+            slice2.set_data(slice_2)
 
-
-slidx.on_changed(update)
-
-
-plt.show()
+    slidx.on_changed(update)
+    plt.show()
 
 
+show_slices(img_data)
