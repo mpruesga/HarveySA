@@ -15,15 +15,24 @@ print(img.header.get_data_dtype())
 print(img_data.shape)
 
 
-def tumor_preprocessing(image):
-    processed = np.zeros([240,240,155])
-    for z in range(processed.shape[2]):
-        for y in range(processed.shape[1]):
-            for x in range(processed.shape[0]):
-                if image[x][y][z] > 0:
-                    processed[x][y][z] = 1
-                else:
-                    processed[x][y][z] = 0
+def tumor_preprocessing(image, mode):
+    processed = np.zeros([240, 240, 155])
+    if mode == "brain":
+        for z in range(processed.shape[2]):
+            for y in range(processed.shape[1]):
+                for x in range(processed.shape[0]):
+                    if image[x][y][z] > 0:
+                        processed[x][y][z] = 1
+                    else:
+                        processed[x][y][z] = 0
+    elif mode == "tumor":
+        for z in range(processed.shape[2]):
+            for y in range(processed.shape[1]):
+                for x in range(processed.shape[0]):
+                    if image[x][y][z] == 600:
+                        processed[x][y][z] = 1
+                    else:
+                        processed[x][y][z] = 0
     return processed
 
 
@@ -64,11 +73,6 @@ def get_tumor_dimensions(image):
     tumor_center = (x_center,y_center,z_center)
     return tumor_dims, tumor_center
 
-
-tumor_binary = tumor_preprocessing(img_data)
-tumor, tumor_center = get_tumor_dimensions(tumor_binary)
-
-print(tumor_center)
 
 def label_map():
     array_data = np.zeros([240,240,155])
@@ -200,7 +204,7 @@ def get_scores_tr(indexes,data,tumor_c):
         list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k], 10)
+            list_of_sphere = sphere3D(list_of_points[k], 23)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
                 data[list_of_sphere[l]] = 2048
@@ -276,7 +280,15 @@ def get_brain_surface(mask):
     return surface, surface_indexes
 
 
-brain_surface, surface_index = get_brain_surface(tumor_binary)
+brain_binary = tumor_preprocessing(img_data,"brain")
+tumor_binary = tumor_preprocessing(img_data,"tumor")
+tumor, tumor_center = get_tumor_dimensions(tumor_binary)
+
+print(tumor)
+print(tumor_center)
+
+
+brain_surface, surface_index = get_brain_surface(brain_binary)
 
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 scores = get_scores_tr(indexes, img_data, tumor_center)
