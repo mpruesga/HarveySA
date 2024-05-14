@@ -197,7 +197,7 @@ def get_scores_tr(indexes,data,tumor_c):
     score_list = []
     for i in range(len(indexes)):
         idx = indexes[i]
-        list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[1], idx[0], 0)
+        list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
             list_of_sphere = sphere3D(list_of_points[k], 10)
@@ -279,7 +279,6 @@ def get_brain_surface(mask):
 brain_surface, surface_index = get_brain_surface(tumor_binary)
 
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
-print(indexes)
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 show_slices(img_data)
