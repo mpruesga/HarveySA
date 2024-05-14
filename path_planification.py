@@ -3,6 +3,8 @@ import numpy as np
 import nibabel as nib
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
+from scipy import ndimage
+import cv2
 
 
 path = "MR images/Labels/FullSegmentation_001_Test.nii.gz"
@@ -18,7 +20,7 @@ def tumor_preprocessing(image):
     for z in range(processed.shape[2]):
         for y in range(processed.shape[1]):
             for x in range(processed.shape[0]):
-                if image[x][y][z] == 600:
+                if image[x][y][z] > 0:
                     processed[x][y][z] = 1
                 else:
                     processed[x][y][z] = 0
@@ -177,7 +179,7 @@ def get_best_paths_s1(data,tumor_c):
 
     sort_index = numpy.argsort(np.abs(score_list))
     best_10 = []
-    for i in range(30):
+    for i in range(10):
         best_10.append(sort_index[i])
     indexes = []
     for index in range(len(best_10)):
@@ -205,9 +207,9 @@ def get_scores_tr(indexes,data,tumor_c):
 
 
 #array_data = label_map()
-indexes = get_best_paths_s1(img_data, tumor_center)
+"""indexes = get_best_paths_s1(img_data, tumor_center)
 scores = get_scores_tr(indexes, img_data, tumor_center)
-print(scores)
+print(scores)"""
 
 
 def show_slices(data):
@@ -240,3 +242,47 @@ def show_slices(data):
 
 
 show_slices(img_data)
+
+
+def sobel_filter(image):
+    sobel_h = ndimage.sobel(image, 0, mode='constant', cval=0.1)  # horizontal gradient
+    sobel_v = ndimage.sobel(image, 1, mode='constant', cval=0.1)  # vertical gradient
+    magnitude = np.sqrt(sobel_h**2 + sobel_v**2)
+    if np.sum(magnitude) != 0:
+        magnitude *= 255.0 / np.max(magnitude)  # normalization
+    """fig, axs = plt.subplots(2, 2, figsize=(8, 8))
+    plt.gray()  # show the filtered result in grayscale
+    axs[0, 0].imshow(image)
+    axs[0, 1].imshow(sobel_h)
+    axs[1, 0].imshow(sobel_v)
+    axs[1, 1].imshow(magnitude)
+    titles = ["original", "horizontal", "vertical", "magnitude"]
+    for i, ax in enumerate(axs.ravel()):
+        ax.set_title(titles[i])
+        ax.axis("off")
+    #plt.show()"""
+    return magnitude
+
+
+def get_brain_surface(mask):
+    kernel = np.ones((20, 20), np.uint8)
+    surface = mask
+    for i in range(155):
+        surface[:,:,i] = cv2.morphologyEx(surface[:,:,i], cv2.MORPH_CLOSE, kernel)
+        surface[:,:,i] = sobel_filter(surface[:,:,i])
+
+    cont = 0
+    for z in range(surface.shape[2]):
+        for y in range(surface.shape[1]):
+            for x in range(surface.shape[0]):
+                if surface[x,y,z] > 0:
+                    surface[x,y,z] = 1
+                    cont += 1
+                else:
+                    surface[x,y,z] = 0
+    print(cont)
+    return surface
+
+
+brain_surface = get_brain_surface(tumor_binary)
+show_slices(brain_surface)
