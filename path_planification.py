@@ -7,7 +7,7 @@ from scipy import ndimage
 import cv2
 
 
-path = "MR images/Labels/FullSegmentation_001_Test.nii.gz"
+path = "MR images/Labels/WeightedSegmentation_001_Test.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
 #img_data = img_data[:,:,:,2]
@@ -21,7 +21,7 @@ def tumor_preprocessing(image, mode):
         for z in range(processed.shape[2]):
             for y in range(processed.shape[1]):
                 for x in range(processed.shape[0]):
-                    if image[x][y][z] > 0:
+                    if image[x][y][z] != 0:
                         processed[x][y][z] = 1
                     else:
                         processed[x][y][z] = 0
@@ -29,7 +29,7 @@ def tumor_preprocessing(image, mode):
         for z in range(processed.shape[2]):
             for y in range(processed.shape[1]):
                 for x in range(processed.shape[0]):
-                    if image[x][y][z] == 600:
+                    if image[x][y][z] < 0:
                         processed[x][y][z] = 1
                     else:
                         processed[x][y][z] = 0
@@ -204,18 +204,18 @@ def get_scores_tr(indexes,data,tumor_c):
         list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k], 23)
+            list_of_sphere = sphere3D(list_of_points[k], 5)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                data[list_of_sphere[l]] = 2048
+                data[list_of_sphere[l]] = 1
         score_list.append(score)
     return score_list
 
 
 def show_slices(data):
     slice_0 = data[100, :, :]
-    slice_1 = data[:, 100, :]
-    slice_2 = data[:, :, 80]
+    slice_1 = data[:, 140, :]
+    slice_2 = data[:, :, 66]
 
     fig, axes = plt.subplots(1,3)
     slice0 = axes[0].imshow(slice_0, cmap="gray", origin="lower")
@@ -272,7 +272,7 @@ def get_brain_surface(mask):
     for z in range(surface.shape[2]):
         for y in range(surface.shape[1]):
             for x in range(surface.shape[0]):
-                if surface[x,y,z] > 200:
+                if surface[x,y,z] > 100:
                     surface[x,y,z] = 1
                     surface_indexes.append((x,y,z))
                 else:
@@ -294,3 +294,4 @@ indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 show_slices(img_data)
+
