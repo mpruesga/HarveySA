@@ -33,6 +33,12 @@ def tumor_preprocessing(image, mode):
                         processed[x][y][z] = 1
                     else:
                         processed[x][y][z] = 0
+    elif mode == "viz":
+        for z in range(processed.shape[2]):
+            for y in range(processed.shape[1]):
+                for x in range(processed.shape[0]):
+                    if image[x][y][z] < 0:
+                        image[x][y][z] = 0
     return processed
 
 
@@ -183,7 +189,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
 
     sort_index = numpy.argsort(np.abs(score_list))
     best_10 = []
-    for i in range(10):
+    for i in range(3):
         best_10.append(sort_index[i])
     indexes = []
     for index in range(len(best_10)):
@@ -207,7 +213,7 @@ def get_scores_tr(indexes,data,tumor_c):
             list_of_sphere = sphere3D(list_of_points[k], 5)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                data[list_of_sphere[l]] = 1
+                #data[list_of_sphere[l]] = 1
         score_list.append(score)
     return score_list
 
@@ -293,5 +299,5 @@ brain_surface, surface_index = get_brain_surface(brain_binary)
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
+tumor_preprocessing(img_data, "viz")
 show_slices(img_data)
-
