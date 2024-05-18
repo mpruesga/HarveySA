@@ -15,7 +15,7 @@ print(img.header.get_data_dtype())
 print(img_data.shape)
 
 
-def tumor_preprocessing(image, mode):
+def image_preprocessing(image, mode):
     processed = np.zeros([240, 240, 155])
     if mode == "brain":
         for z in range(processed.shape[2]):
@@ -39,6 +39,8 @@ def tumor_preprocessing(image, mode):
                 for x in range(processed.shape[0]):
                     if image[x][y][z] < 0:
                         image[x][y][z] = 0
+                    if image[x][y][z] == 1:
+                        image[x][y][z] = 0.3
     return processed
 
 
@@ -78,6 +80,27 @@ def get_tumor_dimensions(image):
 
     tumor_center = (x_center,y_center,z_center)
     return tumor_dims, tumor_center
+
+
+def get_brain_midline(brain_binary, img):
+    x_slices = []
+    for i in range(240):
+        if np.sum(brain_binary[i, :, :]) > 0:
+            x_slices.append(i)
+
+    if len(x_slices) % 2 != 0:  # Check if the length is odd
+        middle_index = len(x_slices) // 2
+    else:
+        middle_index = len(x_slices) // 2 - 1
+    x_center = x_slices[middle_index]
+
+    for y in range(img.shape[0]):
+        for z in range(img.shape[2]):
+            if brain_binary[x_center,y,z] == 1:
+                img_data[x_center,y,z] = 1
+                img_data[x_center+1, y, z] = 1
+                img_data[x_center-1, y, z] = 1
+
 
 
 def label_map():
@@ -285,9 +308,10 @@ def get_brain_surface(mask):
     return surface, surface_indexes
 
 
-brain_binary = tumor_preprocessing(img_data,"brain")
-tumor_binary = tumor_preprocessing(img_data,"tumor")
+brain_binary = image_preprocessing(img_data,"brain")
+tumor_binary = image_preprocessing(img_data,"tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
+get_brain_midline(brain_binary, img_data)
 
 print(tumor)
 print(tumor_center)
@@ -299,5 +323,5 @@ indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 print(indexes)
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
-tumor_preprocessing(img_data, "viz")
+image_preprocessing(img_data, "viz")
 show_slices(img_data)
