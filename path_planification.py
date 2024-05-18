@@ -1,4 +1,3 @@
-import numpy
 import numpy as np
 import nibabel as nib
 import matplotlib.pyplot as plt
@@ -227,37 +226,49 @@ def get_scores_tr(indexes,data,tumor_c):
             list_of_sphere = sphere3D(list_of_points[k], 5)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                #data[list_of_sphere[l]] = 0.3
+                data[list_of_sphere[l]] = 0.3
         score_list.append(score)
     return score_list
 
 
 def show_slices(data):
-    slice_0 = data[100, :, :]
-    slice_1 = data[:, 140, :]
-    slice_2 = data[:, :, 66]
+    sagital = data[100, :, :]
+    coronal = data[:, 140, :]
+    axial = data[:, :, 66]
 
-    fig, axes = plt.subplots(1,3)
-    slice0 = axes[0].imshow(slice_0, cmap="gray", origin="lower")
-    slice1 = axes[1].imshow(slice_1, cmap="gray", origin="lower")
-    slice2 = axes[2].imshow(slice_2, cmap="gray", origin="lower")
+    #fig, axes = plt.subplots(1,3)
+    fig, ax = plt.subplots()
+    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower")
+    ax1 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
+    slider_sagital = Slider(ax=ax1, label='index', valmin=0, valmax=239, valinit=0, valfmt='%d')
+    fig, ax = plt.subplots()
+    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower")
+    ax2 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
+    slider_coronal = Slider(ax2, 'index', 0, 239, valinit=0, valfmt='%d')
+    fig, ax = plt.subplots()
+    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower")
+    ax3 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
+    slider_axial = Slider(ax3, 'index', 0, 154, valinit=0, valfmt='%d')
 
-    axidx = plt.axes([0.25, 0.15, 0.65, 0.03])
-    slidx = Slider(axidx, 'index', 0, 239, valinit=0, valfmt='%d')
+
+
 
     def update(val):
-        idx = slidx.val
-        slice_0 = data[int(idx), :, :]
-        slice0.set_data(slice_0)
+        sagital_val = slider_sagital.val
+        coronal_val = slider_coronal.val
+        axial_val = slider_axial.val
+        sagital = data[int(sagital_val), :, :]
+        sagital_plt.set_data(cv2.flip(ndimage.rotate(sagital, 90),0))
 
-        slice_1 = data[:, int(idx), :]
-        slice1.set_data(slice_1)
+        coronal = data[:, int(coronal_val), :]
+        coronal_plt.set_data(ndimage.rotate(coronal, 270))
 
-        if idx < 155:
-            slice_2 = data[:,:,int(idx)]
-            slice2.set_data(slice_2)
+        axial = data[:,:,int(axial_val)]
+        axial_plt.set_data(ndimage.rotate(axial, 90))
 
-    slidx.on_changed(update)
+    slider_sagital.on_changed(update)
+    slider_coronal.on_changed(update)
+    slider_axial.on_changed(update)
     plt.show()
 
 
@@ -267,17 +278,6 @@ def sobel_filter(image):
     magnitude = np.sqrt(sobel_h**2 + sobel_v**2)
     if np.sum(magnitude) != 0:
         magnitude *= 255.0 / np.max(magnitude)  # normalization
-    """fig, axs = plt.subplots(2, 2, figsize=(8, 8))
-    plt.gray()  # show the filtered result in grayscale
-    axs[0, 0].imshow(image)
-    axs[0, 1].imshow(sobel_h)
-    axs[1, 0].imshow(sobel_v)
-    axs[1, 1].imshow(magnitude)
-    titles = ["original", "horizontal", "vertical", "magnitude"]
-    for i, ax in enumerate(axs.ravel()):
-        ax.set_title(titles[i])
-        ax.axis("off")
-    #plt.show()"""
     return magnitude
 
 
@@ -303,7 +303,7 @@ def get_brain_surface(mask):
 brain_binary = image_preprocessing(img_data,"brain")
 tumor_binary = image_preprocessing(img_data,"tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
-get_brain_midline(brain_binary, img_data)
+#get_brain_midline(brain_binary, img_data)
 
 print(tumor)
 print(tumor_center)
