@@ -208,20 +208,12 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
             score -= data[list_of_points[k]]
             #array_data[list_of_points[k]] = 0
         score_list.append(score)
-
-    sort_index = numpy.argsort(np.abs(score_list))
-    best_10 = []
-    for i in range(10):
-        best_10.append(sort_index[i])
+    sort_index = np.argsort(score_list)
+    best_10 = sort_index[-10:]
     indexes = []
     for index in range(len(best_10)):
         voxel = init_voxels[best_10[index]]
         indexes.append(voxel)
-        """index_1 = best_10[index] // 240
-        a = index_1 * 240
-        index_2 = best_10[index] - a
-        indexes.append((index_1,index_2))"""
-
     return indexes
 
 
@@ -235,7 +227,7 @@ def get_scores_tr(indexes,data,tumor_c):
             list_of_sphere = sphere3D(list_of_points[k], 5)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                data[list_of_sphere[l]] = 0.3
+                #data[list_of_sphere[l]] = 0.3
         score_list.append(score)
     return score_list
 
@@ -320,8 +312,10 @@ print(tumor_center)
 brain_surface, surface_index = get_brain_surface(brain_binary)
 
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
-print(indexes)
+
+
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
+print(np.argsort(scores))
 image_preprocessing(img_data, "viz")
 show_slices(img_data)
