@@ -176,7 +176,6 @@ def sphere3D(center,d):
 
 def get_best_paths_s1(data, tumor_c, init_voxels):
     score_list = []
-
     for i in range(len(init_voxels)):
         voxel = init_voxels[i]
         list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2],voxel[0],voxel[1],voxel[2])
@@ -189,7 +188,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
 
     sort_index = numpy.argsort(np.abs(score_list))
     best_10 = []
-    for i in range(3):
+    for i in range(10):
         best_10.append(sort_index[i])
     indexes = []
     for index in range(len(best_10)):
@@ -213,7 +212,7 @@ def get_scores_tr(indexes,data,tumor_c):
             list_of_sphere = sphere3D(list_of_points[k], 5)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                #data[list_of_sphere[l]] = 1
+                data[list_of_sphere[l]] = 0.3
         score_list.append(score)
     return score_list
 
@@ -278,7 +277,7 @@ def get_brain_surface(mask):
     for z in range(surface.shape[2]):
         for y in range(surface.shape[1]):
             for x in range(surface.shape[0]):
-                if surface[x,y,z] > 100:
+                if surface[x,y,z] > 200:
                     surface[x,y,z] = 1
                     surface_indexes.append((x,y,z))
                 else:
@@ -297,6 +296,7 @@ print(tumor_center)
 brain_surface, surface_index = get_brain_surface(brain_binary)
 
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
+print(indexes)
 scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 tumor_preprocessing(img_data, "viz")
