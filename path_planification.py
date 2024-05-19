@@ -38,9 +38,7 @@ def image_preprocessing(image, mode):
             for y in range(processed.shape[1]):
                 for x in range(processed.shape[0]):
                     if image[x][y][z] < 0:
-                        image[x][y][z] = 0
-                    if image[x][y][z] == 1:
-                        image[x][y][z] = 0.3
+                        image[x][y][z] = 1000
     return processed
 
 
@@ -229,7 +227,7 @@ def get_scores_tr(indexes, data, tumor_c, og_img):
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
                 #data[list_of_sphere[l]] = 0.3
-                path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = 500
+                path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -1000
                 #path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -og_img[list_of_sphere[l]]
         score_list.append(score)
     return score_list, path_vox
@@ -326,10 +324,10 @@ indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 scores, path_3d = get_scores_tr(indexes, img_data, tumor_center, og_data)
 print(scores)
 print(np.argsort(scores))
-image_preprocessing(img_data, "viz")
 
+new = og_data + path_3d[:, :, :, 0] + (tumor_binary*500)
 
-new = og_data + path_3d[:, :, :, 0] + (tumor_binary*700)
+image_preprocessing(new, "viz")
 
 show_slices(new)
 
