@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from scipy import ndimage
 import cv2
-
+from vedo import Volume, show
+from vedo.applications import RayCastPlotter, Slicer3DPlotter
 
 path = "MR images/Labels/WeightedSegmentation_001_Test.nii.gz"
 img = nib.load(path)
@@ -240,15 +241,15 @@ def show_slices(data):
     fig, ax = plt.subplots()
     sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower")
     ax1 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-    slider_sagital = Slider(ax=ax1, label='index', valmin=0, valmax=239, valinit=0, valfmt='%d')
+    slider_sagital = Slider(ax=ax1, label='Slice', valmin=0, valmax=239, valinit=0, valfmt='%d')
     fig, ax = plt.subplots()
     coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower")
     ax2 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-    slider_coronal = Slider(ax2, 'index', 0, 239, valinit=0, valfmt='%d')
+    slider_coronal = Slider(ax2, 'Slice', 0, 239, valinit=0, valfmt='%d')
     fig, ax = plt.subplots()
     axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower")
     ax3 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-    slider_axial = Slider(ax3, 'index', 0, 154, valinit=0, valfmt='%d')
+    slider_axial = Slider(ax3, 'Slice', 0, 154, valinit=0, valfmt='%d')
 
 
 
@@ -318,4 +319,34 @@ scores = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 print(np.argsort(scores))
 image_preprocessing(img_data, "viz")
-show_slices(img_data)
+#show_slices(img_data)
+
+vol = Volume(img_data)
+vol.cmap(['white','b','g','r']).mode(1)
+vol.add_scalarbar()
+show(vol,__doc__,axes=1).close()
+
+""""# Ray Caster
+vol = Volume(brain_binary)
+vol.mode(1).cmap("jet")
+plt = RayCastPlotter(vol, bg='black', bg2='blackboard', axes=7)
+plt.show(viewup="z")
+plt.close()"""
+
+"""#Lego surface
+vol = Volume(img_data)
+#vol.crop(back=0.50)
+lego = vol.legosurface(vmin=0.001, vmax=None, boundary=False)
+lego.cmap('seismic', vmin=0, vmax=None).add_scalarbar()
+show(lego, __doc__, axes=1, viewup='z').close()"""
+
+"""#Slicer 3d
+vol = Volume(img_data)
+plt = Slicer3DPlotter(
+    vol,
+    cmaps=("gist_ncar_r", "jet", "Spectral_r", "hot_r", "bone_r"),
+    use_slider3d=False,
+    bg="white",
+    bg2="blue9",
+)
+plt.show(viewup='z').close()"""
