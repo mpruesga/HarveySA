@@ -82,24 +82,24 @@ def get_tumor_dimensions(image):
     return tumor_dims, tumor_center
 
 
-def get_brain_midline(brain_binary, img):
-    x_slices = []
+def modify_surface(mask):
+    y_slices = []
     for i in range(240):
-        if np.sum(brain_binary[i, :, :]) > 0:
-            x_slices.append(i)
+        if np.sum(mask[:, i, :]) > 0:
+            y_slices.append(i)
 
-    if len(x_slices) % 2 != 0:  # Check if the length is odd
-        middle_index = len(x_slices) // 2
-    else:
-        middle_index = len(x_slices) // 2 - 1
-    x_center = x_slices[middle_index]
+    z_slices = []
+    for i in range(155):
+        if np.sum(mask[:, :, i]) > 0:
+            z_slices.append(i)
 
-    for y in range(img.shape[0]):
-        for z in range(img.shape[2]):
-            if brain_binary[x_center,y,z] == 1:
-                img_data[x_center,y,z] = 1
-                img_data[x_center+1, y, z] = 1
-                img_data[x_center-1, y, z] = 1
+    face_remove = int(np.floor(len(y_slices)*0.3))
+    bottom_remove = int(np.floor(len(y_slices)*0.25))
+
+    for i in range(face_remove):
+        mask[:, y_slices[i], :] = np.zeros((mask.shape[1],mask.shape[2]))
+    for i in range(bottom_remove):
+        mask[:, :, z_slices[i]] = np.zeros((mask.shape[0],mask.shape[1]))
 
 
 
@@ -219,6 +219,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
 
 def get_scores_tr(indexes,data,tumor_c):
     score_list = []
+    path_vox = np.zeros((240,240,155))
     for i in range(len(indexes)):
         idx = indexes[i]
         list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
@@ -228,8 +229,9 @@ def get_scores_tr(indexes,data,tumor_c):
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
                 data[list_of_sphere[l]] = 0.3
+                path_vox[list_of_sphere[l]] = 600
         score_list.append(score)
-    return score_list
+    return score_list, path_vox
 
 
 def show_slices(data):
@@ -289,6 +291,8 @@ def get_brain_surface(mask):
         surface[:,:,i] = cv2.morphologyEx(surface[:,:,i], cv2.MORPH_CLOSE, kernel)
         surface[:,:,i] = sobel_filter(surface[:,:,i])
 
+    modify_surface(surface)
+
     surface_indexes = []
     for z in range(surface.shape[2]):
         for y in range(surface.shape[1]):
@@ -304,7 +308,6 @@ def get_brain_surface(mask):
 brain_binary = image_preprocessing(img_data,"brain")
 tumor_binary = image_preprocessing(img_data,"tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
-#get_brain_midline(brain_binary, img_data)
 
 print(tumor)
 print(tumor_center)
@@ -315,14 +318,21 @@ brain_surface, surface_index = get_brain_surface(brain_binary)
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 
 
-scores = get_scores_tr(indexes, img_data, tumor_center)
+scores, path_3d = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 print(np.argsort(scores))
 image_preprocessing(img_data, "viz")
-#show_slices(img_data)
 
-vol = Volume(img_data)
-vol.cmap(['white','b','g','r']).mode(1)
+
+path = "MR images/Images/BraTS20_Training_001_t1.nii"
+og_img = nib.load(path)
+og_data = og_img.get_fdata()
+new = og_data + path_3d
+
+show_slices(new)
+
+vol = Volume(new)
+#vol.cmap(['white','b','g','r']).mode(1)
 vol.add_scalarbar()
 show(vol,__doc__,axes=1).close()
 
