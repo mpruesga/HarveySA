@@ -223,10 +223,10 @@ def get_scores_tr(indexes, data, tumor_c, og_img):
         list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k], 10)
+            list_of_sphere = sphere3D(list_of_points[k], 15)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
-                #data[list_of_sphere[l]] = 0.3
+                data[list_of_sphere[l]] = 0.3
                 path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -1000
                 #path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -og_img[list_of_sphere[l]]
         score_list.append(score)
@@ -325,7 +325,7 @@ scores, path_3d = get_scores_tr(indexes, img_data, tumor_center, og_data)
 print(scores)
 print(np.argsort(scores))
 
-new = og_data + path_3d[:, :, :, 0] + (tumor_binary*500)
+new = og_data + path_3d[:, :, :, 0] + (tumor_binary*400)
 
 image_preprocessing(new, "viz")
 
@@ -336,22 +336,22 @@ show_slices(new)
 vol.add_scalarbar()
 show(vol, __doc__, axes=1).close()"""
 
-# Ray Caster
+"""# Ray Caster
 vol = Volume(new)
 vol.mode(1).cmap("jet")
 plt = RayCastPlotter(vol, bg='black', bg2='blackboard', axes=7)
 plt.show(viewup="z")
-plt.close()
+plt.close()"""
 
 """#Lego surface
-vol = Volume(img_data)
+vol = Volume(new)
 #vol.crop(back=0.50)
-lego = vol.legosurface(vmin=0.001, vmax=None, boundary=False)
-lego.cmap('seismic', vmin=0, vmax=None).add_scalarbar()
+lego = vol.legosurface(vmin=1, vmax=1000, boundary=False)
+lego.cmap('seismic', vmin=1, vmax=1000).add_scalarbar()
 show(lego, __doc__, axes=1, viewup='z').close()"""
 
-"""#Slicer 3d
-vol = Volume(img_data)
+#Slicer 3d
+vol = Volume(new)
 plt = Slicer3DPlotter(
     vol,
     cmaps=("gist_ncar_r", "jet", "Spectral_r", "hot_r", "bone_r"),
@@ -359,4 +359,4 @@ plt = Slicer3DPlotter(
     bg="white",
     bg2="blue9",
 )
-plt.show(viewup='z').close()"""
+plt.show(viewup='z').close()
