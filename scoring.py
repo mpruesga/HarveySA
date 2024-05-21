@@ -23,8 +23,8 @@ def call_synthseg(input_file, output_path):
     args['robust'] = False
     args['parc'] = True
     args['fast'] = False
-    args['post'] = None
-    args['crop'] = 192
+    args['post'] = False
+    args['crop'] = 198
     args['ct'] = False
     args['resample'] = None
     args['vol'] = None
@@ -143,12 +143,12 @@ def compute_weights(data):
 
 
 # ------------------ SynthSeg Structure Segmentation ------------------
-tumor_seg_file_path = "MR images/Images/BraTS20_Training_008_seg.nii"
+tumor_seg_file_path = "MR images/Images/BraTS20_Training_001_seg.nii"
 tumor_seg_load = nib.load(tumor_seg_file_path)
 tumor_seg_voxels = tumor_seg_load.get_fdata()
 
 # Import the original T1 image capture to subtract the mask and input it into SynthSeg
-t1_file_path = "MR images/Images/BraTS20_Training_008_t1.nii"
+t1_file_path = "MR images/Images/BraTS20_Training_001_t1.nii"
 t1_load = nib.load(t1_file_path)
 t1_voxels = t1_load.get_fdata()
 

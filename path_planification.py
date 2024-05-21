@@ -7,7 +7,7 @@ import cv2
 from vedo import Volume, show
 from vedo.applications import RayCastPlotter, Slicer3DPlotter
 
-path = "MR images/Labels/WeightedSegmentation_001_Test.nii.gz"
+path = "MR images/SynthSeg/TumorSubtraction_synthseg.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
 #img_data = img_data[:,:,:,2]
@@ -303,12 +303,12 @@ def get_brain_surface(mask):
                     surface[x,y,z] = 0
     return surface, surface_indexes
 
-path = "MR images/Images/BraTS20_Training_001_t1.nii"
+path = "MR images/Images/BraTS20_Training_008_t1.nii"
 og_img = nib.load(path)
 og_data = og_img.get_fdata()
 
 
-brain_binary = image_preprocessing(img_data,"brain")
+"""brain_binary = image_preprocessing(img_data,"brain")
 tumor_binary = image_preprocessing(img_data,"tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
 
@@ -327,9 +327,9 @@ print(np.argsort(scores))
 
 new = og_data + path_3d[:, :, :, 0] + (tumor_binary*400)
 
-image_preprocessing(new, "viz")
+image_preprocessing(new, "viz")"""
 
-show_slices(new)
+show_slices(img_data)
 
 """vol = Volume(new)
 #vol.cmap('jet', vmin=0, vmax=None)
@@ -351,7 +351,7 @@ lego.cmap('seismic', vmin=1, vmax=1000).add_scalarbar()
 show(lego, __doc__, axes=1, viewup='z').close()"""
 
 #Slicer 3d
-vol = Volume(new)
+vol = Volume(img_data)
 plt = Slicer3DPlotter(
     vol,
     cmaps=("gist_ncar_r", "jet", "Spectral_r", "hot_r", "bone_r"),

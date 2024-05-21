@@ -19,7 +19,7 @@ import os
 import sys
 import traceback
 import numpy as np
-import tensorflow as tf
+import  tensorflow as tf
 import tensorflow.python.keras.layers as KL
 import tensorflow.python.keras.backend as K
 from tensorflow.python.keras.models import Model
@@ -33,6 +33,13 @@ from Models.SynthSeg.ext.lab2im import utils
 from Models.SynthSeg.ext.lab2im import layers
 from Models.SynthSeg.ext.lab2im import edit_volumes
 from Models.SynthSeg.ext.neuron import models as nrn_models
+
+from tensorflow.python.keras.engine import data_adapter
+
+def _is_distributed_dataset(ds):
+    return isinstance(ds, data_adapter.input_lib.DistributedDatasetSpec)
+
+data_adapter._is_distributed_dataset = _is_distributed_dataset
 
 
 def predict(path_images,
