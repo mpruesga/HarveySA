@@ -7,7 +7,7 @@ import cv2
 from vedo import Volume, show
 from vedo.applications import RayCastPlotter, Slicer3DPlotter
 
-path = "MR images/Labels/WeightedSegmentation_001_Test3.nii.gz"
+path = "MR images/Labels/WeightedSegmentation_002.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
 #img_data = img_data[:,:,:,2]
@@ -303,7 +303,7 @@ def get_brain_surface(mask):
                     surface[x,y,z] = 0
     return surface, surface_indexes
 
-path = "MR images/Images/BraTS20_Training_008_t1.nii"
+path = "MR images/Images/BraTS20_Training_002_t1.nii"
 og_img = nib.load(path)
 og_data = og_img.get_fdata()
 
@@ -336,12 +336,12 @@ show_slices(new)
 vol.add_scalarbar()
 show(vol, __doc__, axes=1).close()"""
 
-"""# Ray Caster
+# Ray Caster
 vol = Volume(new)
 vol.mode(1).cmap("jet")
 plt = RayCastPlotter(vol, bg='black', bg2='blackboard', axes=7)
 plt.show(viewup="z")
-plt.close()"""
+plt.close()
 
 """#Lego surface
 vol = Volume(new)
@@ -350,7 +350,7 @@ lego = vol.legosurface(vmin=1, vmax=1000, boundary=False)
 lego.cmap('seismic', vmin=1, vmax=1000).add_scalarbar()
 show(lego, __doc__, axes=1, viewup='z').close()"""
 
-#Slicer 3d
+"""#Slicer 3d
 vol = Volume(new)
 plt = Slicer3DPlotter(
     vol,
@@ -359,4 +359,4 @@ plt = Slicer3DPlotter(
     bg="white",
     bg2="blue9",
 )
-plt.show(viewup='z').close()
+plt.show(viewup='z').close()"""
