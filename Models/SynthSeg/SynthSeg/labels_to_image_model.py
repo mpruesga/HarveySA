@@ -17,8 +17,8 @@ License.
 # python imports
 import numpy as np
 import tensorflow as tf
-import tensorflow.python.keras.layers as KL
-from tensorflow.python.keras.models import Model
+import keras.layers as KL
+from keras.models import Model
 
 # third-party imports
 from Models.SynthSeg.ext.lab2im import utils

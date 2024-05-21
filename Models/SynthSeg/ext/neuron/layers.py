@@ -19,7 +19,7 @@ License: GPLv3
 # third party
 import tensorflow as tf
 from keras import backend as K
-from tensorflow.python.keras.layers import Layer
+from keras.layers import Layer
 from copy import deepcopy
 
 # local

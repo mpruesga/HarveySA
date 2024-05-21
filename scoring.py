@@ -1,6 +1,6 @@
 import nibabel as nib
-from nibabel.processing import resample_from_to 
-import matplotlib.pyplot as plt
+#from nibabel.processing import resample_from_to
+#import matplotlib.pyplot as plt
 import numpy as np
 import os
 import sys
@@ -24,7 +24,7 @@ def call_synthseg(input_file, output_path):
     args['parc'] = True
     args['fast'] = False
     args['post'] = False
-    args['crop'] = 198
+    args['crop'] = 192
     args['ct'] = False
     args['resample'] = None
     args['vol'] = None

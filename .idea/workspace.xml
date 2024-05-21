@@ -3,8 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="90a60944-2fd5-454b-b949-37dca2f277e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MR images/SynthSeg/TumorSubtraction.nii.gz" beforeDir="false" afterPath="$PROJECT_DIR$/MR images/SynthSeg/TumorSubtraction.nii.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/Labels/FullSegmentation_008_Test.nii.gz" beforeDir="false" afterPath="$PROJECT_DIR$/MR images/Labels/FullSegmentation_008_Test.nii.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/Labels/WeightedSegmentation_001_Test3.nii.gz" beforeDir="false" afterPath="$PROJECT_DIR$/MR images/Labels/WeightedSegmentation_001_Test3.nii.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/SynthSeg/TumorSubtraction_synthseg.nii.gz" beforeDir="false" afterPath="$PROJECT_DIR$/MR images/SynthSeg/TumorSubtraction_synthseg.nii.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/labels_to_image_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/labels_to_image_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/metrics_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/metrics_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/predict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/predict_synthseg.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/predict_synthseg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/training.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/training_supervised.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/SynthSeg/training_supervised.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/edit_tensors.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/edit_tensors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/lab2im_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/lab2im_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/layers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/ext/lab2im/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/ext/neuron/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/ext/neuron/layers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SynthSeg/ext/neuron/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SynthSeg/ext/neuron/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/path_planification.py" beforeDir="false" afterPath="$PROJECT_DIR$/path_planification.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scoring.py" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.py" afterDir="false" />
     </list>
@@ -32,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/miang/Desktop/HarveySeg&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/miang/Desktop/HarveySA",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Galen" />

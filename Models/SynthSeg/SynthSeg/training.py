@@ -24,8 +24,8 @@ import keras
 import numpy as np
 import tensorflow as tf
 from keras import models
-import tensorflow.python.keras.callbacks as KC
-from tensorflow.python.keras.optimizers import adam_v2
+import keras.callbacks as KC
+from keras.optimizers import Adam
 from inspect import getmembers, isclass
 
 # project imports
@@ -342,7 +342,7 @@ def train_model(model,
 
     # compile
     if compile_model:
-        model.compile(optimizer=adam_v2(lr=learning_rate), loss=metrics.IdentityLoss().loss)
+        model.compile(optimizer=Adam(lr=learning_rate), loss=metrics.IdentityLoss().loss)
 
     # fit
     model.fit_generator(generator,

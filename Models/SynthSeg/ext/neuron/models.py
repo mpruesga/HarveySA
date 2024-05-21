@@ -18,9 +18,9 @@ from Models.SynthSeg.ext.neuron import layers
 import numpy as np
 import tensorflow as tf
 import keras
-import tensorflow.python.keras.layers as KL
-from tensorflow.python.keras.models import Model
-import tensorflow.python.keras.backend as K
+import keras.layers as KL
+from keras.models import Model
+import keras.backend as K
 
 
 def unet(nb_features,
@@ -348,7 +348,7 @@ def conv_enc(nb_features,
 
         if batch_norm is not None:
             name = '%s_bn_down_%d' % (prefix, level)
-            last_tensor = keras.layers.BatchNormalization(axis=batch_norm, name=name)(last_tensor)
+            last_tensor = KL.BatchNormalization(axis=batch_norm, name=name)(last_tensor)
 
         # max pool if we're not at the last level
         if level < (nb_levels - 1):
@@ -474,7 +474,7 @@ def conv_dec(nb_features,
 
         if batch_norm is not None:
             name = '%s_bn_up_%d' % (prefix, level)
-            last_tensor = keras.layers.BatchNormalization(axis=batch_norm, name=name)(last_tensor)
+            last_tensor = KL.BatchNormalization(axis=batch_norm, name=name)(last_tensor)
 
     # Compute likelihood prediction (no activation yet)
     name = '%s_likelihood' % prefix

@@ -24,7 +24,7 @@ import os
 import numpy as np
 import tensorflow as tf
 from keras import models
-import tensorflow.python.keras.layers as KL
+import keras.layers as KL
 import numpy.random as npr
 
 # project imports
