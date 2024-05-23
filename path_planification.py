@@ -10,12 +10,27 @@ from vedo.applications import RayCastPlotter, Slicer3DPlotter
 path = "MR images/Labels/WeightedSegmentation_002.nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
-#img_data = img_data[:,:,:,2]
 print(img.header.get_data_dtype())
 print(img_data.shape)
 
 
 def image_preprocessing(image, mode):
+    """
+    Preprocesses input 3d image.
+
+    Given a 3d image or 3d array, preprocesses the array depending on
+    the selected mode.
+
+    Args:
+        image: a numpy 3d array.
+        mode: a string determining the mode.
+            'brain': creates a binary mask of the brain.
+            'tumor': creates a binary mask of the tumor.
+            'visualization': prepares the image for matplotlib.plt visualization.
+
+    Returns:
+        A preprocessed numpy 3d array.
+    """
     processed = np.zeros([240, 240, 155])
     if mode == "brain":
         for z in range(processed.shape[2]):
@@ -33,7 +48,7 @@ def image_preprocessing(image, mode):
                         processed[x][y][z] = 1
                     else:
                         processed[x][y][z] = 0
-    elif mode == "viz":
+    elif mode == "visualization":
         for z in range(processed.shape[2]):
             for y in range(processed.shape[1]):
                 for x in range(processed.shape[0]):
@@ -162,7 +177,7 @@ def bresenham3D(x1, y1, z1, x2, y2, z2):
             p2 += 2 * dz
             ListOfPoints.append((x1, y1, z1))
 
-    # Driving axis is Z-axis"
+    # Driving axis is Z-axis
     else:
         p1 = 2 * dy - dz
         p2 = 2 * dx - dz
@@ -223,7 +238,7 @@ def get_scores_tr(indexes, data, tumor_c, og_img):
         list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k], 15)
+            list_of_sphere = sphere3D(list_of_points[k], 12)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
                 data[list_of_sphere[l]] = 0.3
@@ -234,23 +249,30 @@ def get_scores_tr(indexes, data, tumor_c, og_img):
 
 
 def show_slices(data):
-    sagital = data[100, :, :]
-    coronal = data[:, 140, :]
-    axial = data[:, :, 66]
+    sagital = data[0, :, :]
+    coronal = data[:, 0, :]
+    axial = data[:, :, 0]
 
     #fig, axes = plt.subplots(1,3)
     fig, ax = plt.subplots()
-    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower")
-    ax1 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-    slider_sagital = Slider(ax=ax1, label='Slice', valmin=0, valmax=239, valinit=0, valfmt='%d')
+    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower", vmin=0, vmax=600)
+    plt.title('Sagital', fontsize=15, fontweight='bold')
+    ax1 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
+    slider_sagital = Slider(ax=ax1, label='Corte', valmin=0, valmax=239, valinit=0, valfmt='%d')
+    ax.axis('off')
     fig, ax = plt.subplots()
-    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower")
-    ax2 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-    slider_coronal = Slider(ax2, 'Slice', 0, 239, valinit=0, valfmt='%d')
+    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower", vmin=0, vmax=600)
+    plt.title('Coronal', fontsize=15, fontweight='bold')
+    ax2 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
+    slider_coronal = Slider(ax2, 'Corte', 0, 239, valinit=0, valfmt='%d')
+    ax.axis('off')
     fig, ax = plt.subplots()
-    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower")
-    ax3 = fig.add_axes([0.25, 0.1, 0.65, 0.03])
-    slider_axial = Slider(ax3, 'Slice', 0, 154, valinit=0, valfmt='%d')
+    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower", vmin=0, vmax=600)
+    plt.title('Axial', fontsize=15, fontweight='bold')
+    ax3 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
+    slider_axial = Slider(ax3, 'Corte', 0, 154, valinit=0, valfmt='%d')
+    ax.axis('off')
+
 
 
 
@@ -327,7 +349,7 @@ print(np.argsort(scores))
 
 new = og_data + path_3d[:, :, :, 0] + (tumor_binary*400)
 
-image_preprocessing(new, "viz")
+image_preprocessing(new, "visualization")
 
 show_slices(new)
 
