@@ -7,12 +7,6 @@ import cv2
 from vedo import Volume, show
 from vedo.applications import RayCastPlotter, Slicer3DPlotter
 
-path = "MR images/Labels/WeightedSegmentation_002.nii.gz"
-img = nib.load(path)
-img_data = img.get_fdata()
-print(img.header.get_data_dtype())
-print(img_data.shape)
-
 
 def image_preprocessing(image, mode):
     """
@@ -31,7 +25,7 @@ def image_preprocessing(image, mode):
     Returns:
         A preprocessed numpy 3d array.
     """
-    processed = np.zeros([240, 240, 155])
+    processed = np.zeros(image.shape)
     if mode == "brain":
         for z in range(processed.shape[2]):
             for y in range(processed.shape[1]):
@@ -96,6 +90,20 @@ def get_tumor_dimensions(image):
 
 
 def modify_surface(mask):
+    """
+    Modifies the surface mask removing selected areas.
+
+    Given a 3d image or array binary mask of the surface of the brain,
+    removes specific selected areas, for example: forehead, brainstem
+    and cerebellum.
+
+    Args:
+        mask: a binary numpy 3d.
+
+    Returns:
+        The modified mask with the specific areas removed.
+
+    """
     y_slices = []
     for i in range(240):
         if np.sum(mask[:, i, :]) > 0:
@@ -115,18 +123,7 @@ def modify_surface(mask):
         mask[:, :, z_slices[i]] = np.zeros((mask.shape[0],mask.shape[1]))
 
 
-
-def label_map():
-    array_data = np.zeros([240,240,155])
-    array_data[120,120,77] = -1
-    array_data[150:200,100:140,50:100] = 0.5
-    array_data[20:220,20:220,110:155] = 0.8
-    array_data[10:130,10:230,5:55] = 1
-    array_data[60:80,10:230,75:100] = 0.7
-    return array_data
-
-
-def bresenham3D(x1, y1, z1, x2, y2, z2):
+def bresenham3d(x1, y1, z1, x2, y2, z2):
     ListOfPoints = []
     ListOfPoints.append((x1, y1, z1))
     dx = abs(x2 - x1)
@@ -195,7 +192,7 @@ def bresenham3D(x1, y1, z1, x2, y2, z2):
     return ListOfPoints
 
 
-def sphere3D(center,d):
+def sphere3d(center, d):
     list_of_points_sphere = []
     start = []
     for i in range(len(center)):
@@ -214,7 +211,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
     score_list = []
     for i in range(len(init_voxels)):
         voxel = init_voxels[i]
-        list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2],voxel[0],voxel[1],voxel[2])
+        list_of_points = bresenham3d(tumor_c[0],tumor_c[1],tumor_c[2],voxel[0],voxel[1],voxel[2])
 
         score = 0
         for k in range(len(list_of_points)):
@@ -232,13 +229,13 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
 
 def get_scores_tr(indexes, data, tumor_c, og_img):
     score_list = []
-    path_vox = np.zeros((240,240,155,len(indexes)))
+    path_vox = np.zeros((240, 240, 155,len(indexes)))
     for i in range(len(indexes)):
         idx = indexes[i]
-        list_of_points = bresenham3D(tumor_c[0],tumor_c[1],tumor_c[2], idx[0], idx[1], idx[2])
+        list_of_points = bresenham3d(tumor_c[0], tumor_c[1], tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3D(list_of_points[k], 12)
+            list_of_sphere = sphere3d(list_of_points[k], 12)
             for l in range(len(list_of_sphere)):
                 score -= data[list_of_sphere[l]]
                 data[list_of_sphere[l]] = 0.3
@@ -253,21 +250,20 @@ def show_slices(data):
     coronal = data[:, 0, :]
     axial = data[:, :, 0]
 
-    #fig, axes = plt.subplots(1,3)
     fig, ax = plt.subplots()
-    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower", vmin=0, vmax=600)
+    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower", vmin=0, vmax=800)
     plt.title('Sagital', fontsize=15, fontweight='bold')
     ax1 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
     slider_sagital = Slider(ax=ax1, label='Corte', valmin=0, valmax=239, valinit=0, valfmt='%d')
     ax.axis('off')
     fig, ax = plt.subplots()
-    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower", vmin=0, vmax=600)
+    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower", vmin=0, vmax=800)
     plt.title('Coronal', fontsize=15, fontweight='bold')
     ax2 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
     slider_coronal = Slider(ax2, 'Corte', 0, 239, valinit=0, valfmt='%d')
     ax.axis('off')
     fig, ax = plt.subplots()
-    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower", vmin=0, vmax=600)
+    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower", vmin=0, vmax=800)
     plt.title('Axial', fontsize=15, fontweight='bold')
     ax3 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
     slider_axial = Slider(ax3, 'Corte', 0, 154, valinit=0, valfmt='%d')
@@ -297,6 +293,19 @@ def show_slices(data):
 
 
 def sobel_filter(image):
+    """
+    Processes input image with a sobel filter.
+
+    Given an input image or 2d array, returns the borders of the image
+    utilizing a sobel filter.
+
+    Args:
+        image: a numpy 2d array.
+
+    Returns:
+        A processed numpy 2d array of the borders of an input image.
+
+    """
     sobel_h = ndimage.sobel(image, 0, mode='constant', cval=0.1)  # horizontal gradient
     sobel_v = ndimage.sobel(image, 1, mode='constant', cval=0.1)  # vertical gradient
     magnitude = np.sqrt(sobel_h**2 + sobel_v**2)
@@ -324,6 +333,12 @@ def get_brain_surface(mask):
                 else:
                     surface[x,y,z] = 0
     return surface, surface_indexes
+
+
+path = "MR images/Labels/WeightedSegmentation_002.nii.gz"
+img = nib.load(path)
+img_data = img.get_fdata()
+
 
 path = "MR images/Images/BraTS20_Training_002_t1.nii"
 og_img = nib.load(path)
@@ -353,32 +368,10 @@ image_preprocessing(new, "visualization")
 
 show_slices(new)
 
-"""vol = Volume(new)
-#vol.cmap('jet', vmin=0, vmax=None)
-vol.add_scalarbar()
-show(vol, __doc__, axes=1).close()"""
-
 # Ray Caster
 vol = Volume(new)
 vol.mode(1).cmap("jet")
-plt = RayCastPlotter(vol, bg='black', bg2='blackboard', axes=7)
-plt.show(viewup="z")
-plt.close()
+ray = RayCastPlotter(vol, bg='black', bg2='blackboard', axes=7)
+ray.show(viewup="z")
+ray.close()
 
-"""#Lego surface
-vol = Volume(new)
-#vol.crop(back=0.50)
-lego = vol.legosurface(vmin=1, vmax=1000, boundary=False)
-lego.cmap('seismic', vmin=1, vmax=1000).add_scalarbar()
-show(lego, __doc__, axes=1, viewup='z').close()"""
-
-"""#Slicer 3d
-vol = Volume(new)
-plt = Slicer3DPlotter(
-    vol,
-    cmaps=("gist_ncar_r", "jet", "Spectral_r", "hot_r", "bone_r"),
-    use_slider3d=False,
-    bg="white",
-    bg2="blue9",
-)
-plt.show(viewup='z').close()"""
