@@ -52,6 +52,20 @@ def image_preprocessing(image, mode):
 
 
 def get_tumor_dimensions(image):
+    """
+    Returns tumor dimensions and tumor center.
+
+    Given a binary 3d mask of the tumor, returns the tumor dimensions
+    and the tumor center represented in two arrays.
+
+    Args:
+        image: a numpy binary 3d array.
+
+    Returns:
+        tumor_dims: an array of the size of the tumor.
+        tumor_center: an array of the coordinates of the tumor center.
+
+    """
     x_slices = []
     for i in range(240):
         if np.sum(image[i,:,:]) > 0:
@@ -124,6 +138,26 @@ def modify_surface(mask):
 
 
 def bresenham3d(x1, y1, z1, x2, y2, z2):
+    """
+    Finds the array of points that creates a line
+    between two given points.
+
+    Given two arrays of 3d coordinates, calculates the
+    array of coordinates that are needed in order to create
+    a straight line between the given points.
+
+    Args:
+        x1: the x coordinate of the first point.
+        y1: the y coordinate of the first point.
+        z1: the z coordinate of the first point.
+        x2: the x coordinate of the second point.
+        y2: the y coordinate of the second point.
+        z2: the z coordinate of the second point.
+
+    Returns:
+        An array of points describing the path of a
+        line between the two given coordinates.
+    """
     ListOfPoints = []
     ListOfPoints.append((x1, y1, z1))
     dx = abs(x2 - x1)
@@ -193,6 +227,20 @@ def bresenham3d(x1, y1, z1, x2, y2, z2):
 
 
 def sphere3d(center, d):
+    """
+    Finds the points needed to create a sphere of diameter d.
+
+    Given the center of the sphere and a value d, returns the points
+    needed to create a sphere of diameter d in the given center.
+
+    Args:
+        center: a numpy array of 3d coordinates.
+        d: the diameter of the desired sphere.
+
+    Returns:
+        An array of points needed to create a sphere of diameter d.
+
+    """
     list_of_points_sphere = []
     start = []
     for i in range(len(center)):
@@ -211,7 +259,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
     score_list = []
     for i in range(len(init_voxels)):
         voxel = init_voxels[i]
-        list_of_points = bresenham3d(tumor_c[0],tumor_c[1],tumor_c[2],voxel[0],voxel[1],voxel[2])
+        list_of_points = bresenham3d(tumor_c[0], tumor_c[1], tumor_c[2], voxel[0], voxel[1], voxel[2])
 
         score = 0
         for k in range(len(list_of_points)):
