@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from scipy import ndimage
 import cv2
-from vedo import Volume, show
-from vedo.applications import RayCastPlotter, Slicer3DPlotter
+from vedo import Volume
+from vedo.applications import RayCastPlotter
 
 
 def image_preprocessing(image, mode):
@@ -256,6 +256,24 @@ def sphere3d(center, d):
 
 
 def get_best_paths_s1(data, tumor_c, init_voxels):
+    """
+    Gets the 10 best linear paths between the brain surface
+    and the tumor center.
+
+    Given a numpy 3d array image, the tumor center coordinates
+    and an array of possible starts, finds the best 10 linear paths
+    that minimize the total score.
+
+    Args:
+        data: a numpy 3d array or image.
+        tumor_c: the coordinates of the tumor center.
+        init_voxels: the possible starts for the path.
+
+    Returns:
+        A list of the best linear paths between the tumor
+        center and the brain surface.
+
+    """
     score_list = []
     for i in range(len(init_voxels)):
         voxel = init_voxels[i]
@@ -275,11 +293,27 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
     return indexes
 
 
-def get_scores_tr(indexes, data, tumor_c, og_img):
+def get_scores_tr(indices, data, tumor_c):
+    """
+    Calculates the score of a moving sphere through
+    the best paths.
+
+    Given the indices of the best linear paths, the numpy
+    3d array data and the tumor center, moves a sphere through
+    the path and calculates the score.
+
+    Args:
+        indices: the indices of the 10 best paths.
+        data: a numpy 3d array or image.
+        tumor_c: the coordinates of the tumor center.
+
+    Returns: the list of scores for each path.
+
+    """
     score_list = []
-    path_vox = np.zeros((240, 240, 155,len(indexes)))
-    for i in range(len(indexes)):
-        idx = indexes[i]
+    path_vox = np.zeros((240, 240, 155,len(indices)))
+    for i in range(len(indices)):
+        idx = indices[i]
         list_of_points = bresenham3d(tumor_c[0], tumor_c[1], tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
@@ -288,12 +322,23 @@ def get_scores_tr(indexes, data, tumor_c, og_img):
                 score -= data[list_of_sphere[l]]
                 data[list_of_sphere[l]] = 0.3
                 path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -1000
-                #path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -og_img[list_of_sphere[l]]
         score_list.append(score)
     return score_list, path_vox
 
 
 def show_slices(data):
+    """
+    Visualizes the 3d image.
+
+    Given a numpy 3d array or image, creates three different
+    visualization modes: sagittal, coronal and axial.
+    Each mode has a slider that can move through the different
+    slices.
+
+    Args:
+        data: a numpy 3d array or image
+
+    """
     sagital = data[0, :, :]
     coronal = data[:, 0, :]
     axial = data[:, :, 0]
@@ -363,6 +408,19 @@ def sobel_filter(image):
 
 
 def get_brain_surface(mask):
+    """
+    Returns a 3d image of the surface of the brain.
+
+    Given a binary 3d array or image, returns the surface
+    of the image.
+
+    Args:
+        mask: a binary numpy 3d array or image.
+
+    Returns:
+        A binary numpy 3d array of the surface of the mask.
+
+    """
     kernel = np.ones((20, 20), np.uint8)
     surface = mask
     for i in range(155):
@@ -406,7 +464,7 @@ brain_surface, surface_index = get_brain_surface(brain_binary)
 indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
 
 
-scores, path_3d = get_scores_tr(indexes, img_data, tumor_center, og_data)
+scores, path_3d = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 print(np.argsort(scores))
 
