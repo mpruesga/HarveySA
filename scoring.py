@@ -140,15 +140,16 @@ def compute_weights(data):
     return data
 
 
-
+patient_id = 2
+print('Patient id: ' + str(patient_id))
 
 # ------------------ SynthSeg Structure Segmentation ------------------
-tumor_seg_file_path = "MR images/Images/BraTS20_Training_002_seg.nii"
+tumor_seg_file_path = "MR images/Images/BraTS20_Training_00" + str(patient_id) + "_seg.nii"
 tumor_seg_load = nib.load(tumor_seg_file_path)
 tumor_seg_voxels = tumor_seg_load.get_fdata()
 
 # Import the original T1 image capture to subtract the mask and input it into SynthSeg
-t1_file_path = "MR images/Images/BraTS20_Training_002_t1.nii"
+t1_file_path = "MR images/Images/BraTS20_Training_00" + str(patient_id) + "_t1.nii"
 t1_load = nib.load(t1_file_path)
 t1_voxels = t1_load.get_fdata()
 
@@ -157,18 +158,18 @@ tumor_mask = np.where((tumor_seg_voxels == 1) | (tumor_seg_voxels == 4), 1, 0)
 t1_voxels *= (1 - tumor_mask)
 
 # Save the masked file to process with SynthSeg
-nib_path = 'MR images/SynthSeg/TumorSubtraction.nii.gz'
+nib_path = "MR images/SynthSeg/TumorSubtraction_00" + str(patient_id) + ".nii.gz"
 img = nib.Nifti1Image(t1_voxels.astype(np.int32), tumor_seg_load.affine)
 nib.save(img, nib_path)
 
 
-atlas_seg_file_path = "MR images/SynthSeg/TumorSubtraction_synthseg.nii.gz"
+atlas_seg_file_path = "MR images/SynthSeg/TumorSubtraction_00" + str(patient_id) + "_synthseg.nii.gz"
 call_synthseg(nib_path, atlas_seg_file_path)
 
 
 # ------------------ Combining SynthSeg and mmFormer Output to a Single File ------------------
 
-atlas_seg_file_path = "MR images/SynthSeg/TumorSubtraction_synthseg.nii.gz"
+atlas_seg_file_path = "MR images/SynthSeg/TumorSubtraction_00" + str(patient_id) + "_synthseg.nii.gz"
 
 atlas_seg_load = nib.load(atlas_seg_file_path)
 atlas_seg_voxels = atlas_seg_load.get_fdata()
@@ -178,11 +179,9 @@ tumor_seg_combine += np.where((tumor_seg_voxels == 2), 498, 0)
 
 full_seg_voxels = tumor_seg_combine + atlas_seg_voxels
 
-nib_path = 'MR images/Labels/FullSegmentation_002_Test.nii.gz'
+nib_path = "MR images/Labels/FullSegmentation_00" + str(patient_id) + ".nii.gz"
 img = nib.Nifti1Image(full_seg_voxels.astype(np.int32), tumor_seg_load.affine)
 nib.save(img, nib_path)
-
-nib_path = 'MR images/Labels/FullSegmentation_002_Test.nii.gz'
 
 full_seg_load = nib.load(nib_path)
 full_seg_voxels = full_seg_load.get_fdata()
@@ -207,6 +206,6 @@ for value in tissue_weights:
 
 
 print(np.unique(tumor_seg_combine))
-nib_path = 'MR images/Labels/WeightedSegmentation_002.nii.gz'
+nib_path = "MR images/Labels/WeightedSegmentation_00" + str(patient_id) + ".nii.gz"
 img = nib.Nifti1Image(tumor_seg_combine.astype(np.float32), full_seg_load.affine)
 nib.save(img, nib_path)
