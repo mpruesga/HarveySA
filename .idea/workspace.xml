@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="90a60944-2fd5-454b-b949-37dca2f277e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MR images/Labels/WeightedSegmentation_002.nii.gz" beforeDir="false" afterPath="$PROJECT_DIR$/MR images/Labels/WeightedSegmentation_002.nii.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/path_planification.py" beforeDir="false" afterPath="$PROJECT_DIR$/path_planification.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scoring.py" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

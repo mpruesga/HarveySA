@@ -326,7 +326,7 @@ def get_scores_tr(indices, data, tumor_c):
     return score_list, path_vox
 
 
-def show_slices(data):
+def show_slices(data, mode):
     """
     Visualizes the 3d image.
 
@@ -339,24 +339,29 @@ def show_slices(data):
         data: a numpy 3d array or image
 
     """
+    if mode == "weights":
+        max = 0.3
+    elif mode == "path":
+        max = 800
+
     sagital = data[0, :, :]
     coronal = data[:, 0, :]
     axial = data[:, :, 0]
 
     fig, ax = plt.subplots()
-    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower", vmin=0, vmax=800)
+    sagital_plt = plt.imshow(cv2.flip(ndimage.rotate(sagital, 90),0), cmap="gray", origin="lower", vmin=0, vmax=max)
     plt.title('Sagital', fontsize=15, fontweight='bold')
     ax1 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
     slider_sagital = Slider(ax=ax1, label='Corte', valmin=0, valmax=239, valinit=0, valfmt='%d')
     ax.axis('off')
     fig, ax = plt.subplots()
-    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower", vmin=0, vmax=800)
+    coronal_plt = plt.imshow(ndimage.rotate(coronal, 270), cmap="gray", origin="lower", vmin=0, vmax=max)
     plt.title('Coronal', fontsize=15, fontweight='bold')
     ax2 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
     slider_coronal = Slider(ax2, 'Corte', 0, 239, valinit=0, valfmt='%d')
     ax.axis('off')
     fig, ax = plt.subplots()
-    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower", vmin=0, vmax=800)
+    axial_plt = plt.imshow(ndimage.rotate(axial, 90), cmap="gray", origin="lower", vmin=0, vmax=max)
     plt.title('Axial', fontsize=15, fontweight='bold')
     ax3 = fig.add_axes([0.25, 0.05, 0.65, 0.03])
     slider_axial = Slider(ax3, 'Corte', 0, 154, valinit=0, valfmt='%d')
@@ -441,18 +446,21 @@ def get_brain_surface(mask):
     return surface, surface_indexes
 
 
-path = "MR images/Labels/WeightedSegmentation_002.nii.gz"
+patient_id = 5
+
+path = "MR images/Labels/WeightedSegmentation_00" + str(patient_id) + ".nii.gz"
 img = nib.load(path)
 img_data = img.get_fdata()
 
 
-path = "MR images/Images/BraTS20_Training_002_t1.nii"
+path = "MR images/Images/BraTS20_Training_00" + str(patient_id) + "_t1.nii"
 og_img = nib.load(path)
 og_data = og_img.get_fdata()
 
+#show_slices(img_data, "weights")
 
-brain_binary = image_preprocessing(img_data,"brain")
-tumor_binary = image_preprocessing(img_data,"tumor")
+brain_binary = image_preprocessing(og_data, "brain")
+tumor_binary = image_preprocessing(img_data, "tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
 
 print(tumor)
@@ -468,11 +476,11 @@ scores, path_3d = get_scores_tr(indexes, img_data, tumor_center)
 print(scores)
 print(np.argsort(scores))
 
-new = og_data + path_3d[:, :, :, 0] + (tumor_binary*400)
+new = og_data + path_3d[:, :, :, (np.argsort(scores))[-1]] + (tumor_binary*400)
 
 image_preprocessing(new, "visualization")
 
-show_slices(new)
+show_slices(new, "path")
 
 # Ray Caster
 vol = Volume(new)

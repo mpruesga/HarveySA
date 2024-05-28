@@ -140,7 +140,7 @@ def compute_weights(data):
     return data
 
 
-patient_id = 2
+patient_id = 5
 print('Patient id: ' + str(patient_id))
 
 # ------------------ SynthSeg Structure Segmentation ------------------
@@ -198,7 +198,7 @@ tumor_seg_combine = np.where(full_seg_voxels != 0, 0.025, 0)
 for value in tissue_weights:
     weight = value["Weight"]
     if value["Region"] == "Tumor":
-        weight = -0.1
+        weight = -0.01
     if value["Region"] == "wmsa":
         weight = 0.025
     tissue_indx = int(value["Index"])
