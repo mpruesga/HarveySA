@@ -4,4 +4,5 @@
 /Data
 .DS_Store
 
-.main.py
+.main.py.mri_segmentation.py
+.stl_converter.py
