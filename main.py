@@ -5,7 +5,7 @@ import math
 import os
 
 physicsClient = p.connect(p.GUI)
-
+# TEST
 p.setAdditionalSearchPath(pd.getDataPath())
 
 p.resetSimulation(p.RESET_USE_DEFORMABLE_WORLD)
