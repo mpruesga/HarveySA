@@ -174,10 +174,11 @@ atlas_seg_file_path = "MR images/SynthSeg/TumorSubtraction_00" + str(patient_id)
 atlas_seg_load = nib.load(atlas_seg_file_path)
 atlas_seg_voxels = atlas_seg_load.get_fdata()
 
-tumor_seg_combine = np.where((tumor_seg_voxels == 1) | (tumor_seg_voxels == 4), 600, 0)
-tumor_seg_combine += np.where((tumor_seg_voxels == 2), 498, 0)
+full_seg_voxels = np.copy(atlas_seg_voxels)
+full_seg_voxels[tumor_seg_voxels == 1] = 600
+full_seg_voxels[tumor_seg_voxels == 4] = 600
+full_seg_voxels[tumor_seg_voxels == 2] = 498
 
-full_seg_voxels = tumor_seg_combine + atlas_seg_voxels
 
 nib_path = "MR images/Labels/FullSegmentation_00" + str(patient_id) + ".nii.gz"
 img = nib.Nifti1Image(full_seg_voxels.astype(np.int32), tumor_seg_load.affine)

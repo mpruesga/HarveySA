@@ -6,6 +6,8 @@ from scipy import ndimage
 import cv2
 from vedo import Volume
 from vedo.applications import RayCastPlotter
+import pandas as pd
+import json
 
 
 def image_preprocessing(image, mode):
@@ -282,7 +284,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
         score = 0
         for k in range(len(list_of_points)):
             score -= data[list_of_points[k]]
-            #array_data[list_of_points[k]] = 0
+            #data[list_of_points[k]] = 0
         score_list.append(score)
     sort_index = np.argsort(score_list)
     best_10 = sort_index[-10:]
@@ -293,7 +295,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
     return indexes
 
 
-def get_scores_tr(indices, data, tumor_c):
+def get_scores_tr(indices, data, tumor_c, full_seg):
     """
     Calculates the score of a moving sphere through
     the best paths.
@@ -311,19 +313,26 @@ def get_scores_tr(indices, data, tumor_c):
 
     """
     score_list = []
-    path_vox = np.zeros((240, 240, 155,len(indices)))
+    path_vox = np.zeros((240, 240, 155, len(indices)))
+    voxels_scores = []
     for i in range(len(indices)):
+        path_scores = []
+        data_score = np.copy(data)
+        seg_score = np.copy(full_seg)
         idx = indices[i]
         list_of_points = bresenham3d(tumor_c[0], tumor_c[1], tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
             list_of_sphere = sphere3d(list_of_points[k], 12)
             for l in range(len(list_of_sphere)):
-                score -= data[list_of_sphere[l]]
-                data[list_of_sphere[l]] = 0.3
+                score -= round(data_score[list_of_sphere[l]], 3)
+                path_scores.append(round(seg_score[list_of_sphere[l]], 3))
+                data_score[list_of_sphere[l]] = 0
+                seg_score[list_of_sphere[l]] = 0
                 path_vox[list_of_sphere[l][0], list_of_sphere[l][1], list_of_sphere[l][2], i] = -1000
-        score_list.append(score)
-    return score_list, path_vox
+        score_list.append(round(score, 3))
+        voxels_scores.append(list(path_scores))
+    return score_list, path_vox, voxels_scores
 
 
 def show_slices(data, mode):
@@ -446,11 +455,34 @@ def get_brain_surface(mask):
     return surface, surface_indexes
 
 
-patient_id = 5
+def get_region_array(dictionary, index_array):
+    # Convert the list of dictionaries into a pandas DataFrame
+    df = pd.DataFrame(dictionary)
+
+    # Initialize an empty list to store regions
+    region_array = []
+
+    # Loop through the index_array to find corresponding regions
+    for index in index_array:
+        result = df.loc[df['Index'] == index, 'Region']
+        region = result.iloc[0] if not result.empty else None
+        region_array.append(region)
+
+    # Convert the list to a numpy array before returning
+    return np.array(region_array)
+
+
+np.set_printoptions(suppress=True)
+
+patient_id = 3
+
+path = "MR images/Labels/FullSegmentation_00" + str(patient_id) + ".nii.gz"
+img = nib.load(path)
+seg_data = img.get_fdata()
 
 path = "MR images/Labels/WeightedSegmentation_00" + str(patient_id) + ".nii.gz"
 img = nib.load(path)
-img_data = img.get_fdata()
+weight_data = img.get_fdata()
 
 
 path = "MR images/Images/BraTS20_Training_00" + str(patient_id) + "_t1.nii"
@@ -460,7 +492,7 @@ og_data = og_img.get_fdata()
 #show_slices(img_data, "weights")
 
 brain_binary = image_preprocessing(og_data, "brain")
-tumor_binary = image_preprocessing(img_data, "tumor")
+tumor_binary = image_preprocessing(weight_data, "tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
 
 print(tumor)
@@ -469,12 +501,21 @@ print(tumor_center)
 
 brain_surface, surface_index = get_brain_surface(brain_binary)
 
-indexes = get_best_paths_s1(img_data, tumor_center, surface_index)
+indexes = get_best_paths_s1(weight_data, tumor_center, surface_index)
 
 
-scores, path_3d = get_scores_tr(indexes, img_data, tumor_center)
+scores, path_3d, voxels = get_scores_tr(indexes, weight_data, tumor_center, seg_data)
 print(scores)
 print(np.argsort(scores))
+
+print(np.unique(voxels[0], return_counts=True))
+
+with open('tissue_labels.json', 'r') as file:
+    data = json.load(file)
+
+regions = get_region_array(data, np.unique(voxels[0]))
+print(regions)
+
 
 new = og_data + path_3d[:, :, :, (np.argsort(scores))[-1]] + (tumor_binary*400)
 
