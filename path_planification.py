@@ -1,3 +1,4 @@
+import matplotlib.pyplot
 import numpy as np
 import nibabel as nib
 import matplotlib.pyplot as plt
@@ -69,15 +70,15 @@ def get_tumor_dimensions(image):
 
     """
     x_slices = []
-    for i in range(240):
+    for i in range(image.shape[0]):
         if np.sum(image[i,:,:]) > 0:
             x_slices.append(i)
     y_slices = []
-    for j in range(240):
+    for j in range(image.shape[1]):
         if np.sum(image[:, j, :]) > 0:
             y_slices.append(j)
     z_slices = []
-    for k in range(155):
+    for k in range(image.shape[2]):
         if np.sum(image[:,:,k]) > 0:
             z_slices.append(k)
 
@@ -120,13 +121,14 @@ def modify_surface(mask):
         The modified mask with the specific areas removed.
 
     """
+    print(mask.shape)
     y_slices = []
-    for i in range(240):
+    for i in range(mask.shape[1]):
         if np.sum(mask[:, i, :]) > 0:
             y_slices.append(i)
 
     z_slices = []
-    for i in range(155):
+    for i in range(mask.shape[2]):
         if np.sum(mask[:, :, i]) > 0:
             z_slices.append(i)
 
@@ -313,7 +315,7 @@ def get_scores_tr(indices, data, tumor_c, full_seg):
 
     """
     score_list = []
-    path_vox = np.zeros((240, 240, 155, len(indices)))
+    path_vox = np.zeros((data.shape[0], data.shape[1], data.shape[2], len(indices)))
     voxels_scores = []
     for i in range(len(indices)):
         path_scores = []
@@ -335,7 +337,7 @@ def get_scores_tr(indices, data, tumor_c, full_seg):
     return score_list, path_vox, voxels_scores
 
 
-def show_slices(data, mode):
+def show_slices(data, max):
     """
     Visualizes the 3d image.
 
@@ -348,10 +350,6 @@ def show_slices(data, mode):
         data: a numpy 3d array or image
 
     """
-    if mode == "weights":
-        max = 0.3
-    elif mode == "path":
-        max = 800
 
     sagital = data[0, :, :]
     coronal = data[:, 0, :]
@@ -436,8 +434,8 @@ def get_brain_surface(mask):
 
     """
     kernel = np.ones((20, 20), np.uint8)
-    surface = mask
-    for i in range(155):
+    surface = np.copy(mask)
+    for i in range(surface.shape[2]):
         surface[:,:,i] = cv2.morphologyEx(surface[:,:,i], cv2.MORPH_CLOSE, kernel)
         surface[:,:,i] = sobel_filter(surface[:,:,i])
 
@@ -474,26 +472,30 @@ def get_region_array(dictionary, index_array):
 
 np.set_printoptions(suppress=True)
 
-patient_id = 3
+patient_id = 1
 
 path = "MR images/Labels/FullSegmentation_00" + str(patient_id) + ".nii.gz"
+#path = "MR images/Labels/synthseg_seg_modified.nii.gz"
 img = nib.load(path)
 seg_data = img.get_fdata()
 
 path = "MR images/Labels/WeightedSegmentation_00" + str(patient_id) + ".nii.gz"
+#path = "MR images/Labels/weighted_tractography_modified.nii.gz"
 img = nib.load(path)
 weight_data = img.get_fdata()
 
 
 path = "MR images/Images/BraTS20_Training_00" + str(patient_id) + "_t1.nii"
+#path = "MR images/Images/og_t2_modified.nii.gz"
 og_img = nib.load(path)
 og_data = og_img.get_fdata()
 
-#show_slices(img_data, "weights")
+#show_slices(og_data, 0.3)
 
 brain_binary = image_preprocessing(og_data, "brain")
 tumor_binary = image_preprocessing(weight_data, "tumor")
 tumor, tumor_center = get_tumor_dimensions(tumor_binary)
+
 
 print(tumor)
 print(tumor_center)
@@ -517,11 +519,11 @@ regions = get_region_array(data, np.unique(voxels[0]))
 print(regions)
 
 
-new = og_data + path_3d[:, :, :, (np.argsort(scores))[-1]] + (tumor_binary*400)
+new = og_data + path_3d[:, :, :, (np.argsort(scores))[-10]] + (tumor_binary*400)
 
 image_preprocessing(new, "visualization")
 
-show_slices(new, "path")
+show_slices(new, 800)
 
 # Ray Caster
 vol = Volume(new)
