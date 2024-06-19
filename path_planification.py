@@ -297,7 +297,7 @@ def get_best_paths_s1(data, tumor_c, init_voxels):
     return indexes
 
 
-def get_scores_tr(indices, data, tumor_c, full_seg):
+def get_scores_tr(indices, data, tumor_c, full_seg, diameter):
     """
     Calculates the score of a moving sphere through
     the best paths.
@@ -325,7 +325,7 @@ def get_scores_tr(indices, data, tumor_c, full_seg):
         list_of_points = bresenham3d(tumor_c[0], tumor_c[1], tumor_c[2], idx[0], idx[1], idx[2])
         score = 0
         for k in range(len(list_of_points)):
-            list_of_sphere = sphere3d(list_of_points[k], 12)
+            list_of_sphere = sphere3d(list_of_points[k], diameter)
             for l in range(len(list_of_sphere)):
                 score -= round(data_score[list_of_sphere[l]], 3)
                 path_scores.append(round(seg_score[list_of_sphere[l]], 3))
@@ -472,7 +472,8 @@ def get_region_array(dictionary, index_array):
 
 np.set_printoptions(suppress=True)
 
-patient_id = 1
+patient_id = 3
+ret_diameter = 8
 
 path = "MR images/Labels/FullSegmentation_00" + str(patient_id) + ".nii.gz"
 #path = "MR images/Labels/synthseg_seg_modified.nii.gz"
@@ -490,7 +491,7 @@ path = "MR images/Images/BraTS20_Training_00" + str(patient_id) + "_t1.nii"
 og_img = nib.load(path)
 og_data = og_img.get_fdata()
 
-#show_slices(og_data, 0.3)
+show_slices(og_data, 800)
 
 brain_binary = image_preprocessing(og_data, "brain")
 tumor_binary = image_preprocessing(weight_data, "tumor")
@@ -500,17 +501,19 @@ tumor, tumor_center = get_tumor_dimensions(tumor_binary)
 print(tumor)
 print(tumor_center)
 
+show_slices(weight_data, 0.25)
 
 brain_surface, surface_index = get_brain_surface(brain_binary)
 
 indexes = get_best_paths_s1(weight_data, tumor_center, surface_index)
 
 
-scores, path_3d, voxels = get_scores_tr(indexes, weight_data, tumor_center, seg_data)
+scores, path_3d, voxels = get_scores_tr(indexes, weight_data, tumor_center, seg_data, ret_diameter)
 print(scores)
 print(np.argsort(scores))
 
 print(np.unique(voxels[0], return_counts=True))
+
 
 with open('tissue_labels.json', 'r') as file:
     data = json.load(file)
@@ -519,7 +522,7 @@ regions = get_region_array(data, np.unique(voxels[0]))
 print(regions)
 
 
-new = og_data + path_3d[:, :, :, (np.argsort(scores))[-10]] + (tumor_binary*400)
+new = og_data + path_3d[:, :, :, (np.argsort(scores))[-1]] + (tumor_binary*400)
 
 image_preprocessing(new, "visualization")
 
